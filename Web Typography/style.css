@@ -1,0 +1,20 @@
+@font-face {
+  font-family: Zen;
+  src: url(./fonts/ZenKurenaido-Regular.ttf);
+  src: url(./fonts/ZenKurenaido-Light.ttf);
+}
+
+body {
+  /* font-family: Zen, sans-serif; */
+}
+
+p {
+  text-align: justify;
+  text-transform: capitalize;
+  font: normal small-caps bold 22px/30px Zen, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
