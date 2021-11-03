@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/style.css">
+    
+    <title>Position</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class=" flex">
+            <div class="logo">
+                <h1>POSITION</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="" class="menu"id="home"> Home</a>
+                <a href="" class="menu"id="about">About</a>
+                <a href="" class="menu"id="services">Services</a>
+                
+            </nav>
+            <div class="buttons">
+                <button id="login">Login</button>
+                <button id="signUp">SignUp</button>
+            </div>
+        </div>
+        
+    </header>
+    <main >
+        <!-- float  -->
+        <section class="section-odd">
+            <div class="container section-container">
+                <h2>Positioning Elements Using Floats</h2>
+                <div class="content flex">
+                    <div class="float-content float-none clearfix">
+                        <!-- <h3 class="contentTitle">float:None</h3> -->
+                        <div class="box sidekicks">Sidekick</div>
+                        <div class="box hero hero-none">Hero</div>
+                        <div class="box sidekicks">Sidekick</div>
+                    </div>
+                    <div class="float-content float-left clearfix">
+                        <!-- <h3 class="contentTitle">float:Left</h3> -->
+                        <div class="box sidekicks">Sidekick</div>
+                        <div class="box hero hero-left">Hero</div>
+                        <div class="box sidekicks">Sidekick</div>
+                    </div>
+                    <div class="float-content float-right clearfix">
+                        <!-- <h3 class="contentTitle">float:Right</h3> -->
+                        <div class="box sidekicks">Sidekick</div>
+                        <div class="box hero hero-right">Hero</div>
+                        <div class="box sidekicks">Sidekick</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Position -->
+        <section class="section-even">
+            <div class="container section-container">
+                <h2>Uniquely Positioning Content</h2>
+                <div class="content flex" id="position-container">
+                    <div class="position-content position-static ">
+                        <!-- <h3 class="contentTitle">float:None</h3> -->
+                        <div class="box sidekicks">Sidekick</div>
+                        <div class="box hero hero-static">Hero</div>
+                        <div class="box sidekicks">Sidekick</div>
+                    </div>
+                    <!-- <h3 class="contentTitle">float:Left</h3> -->
+                    <div class="position-content position-relative">
+                        <div class="box sidekicks">Sidekick</div>
+                        <div class="box hero hero-relative">Hero</div>
+                        <div class="box sidekicks">Sidekick</div>
+                    </div>
+                    <!-- <h3 class="contentTitle">float:Right</h3> -->
+                    <div class="position-content position-absolute ">
+                        <div class="box sidekicks">Sidekick</div>
+                        <div class="box hero hero-absolute">Hero</div>
+                        <div class="box sidekicks">Sidekick</div>
+                    </div>
+                    <!-- <h3 class="contentTitle">float:Right</h3> -->
+                    <div class="position-content position-sticky ">
+                        <div class="box sidekicks">Sidekick</div>
+                        <div class="box hero hero-sticky">Hero</div>
+                        <div class="box sidekicks">Sidekick</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam dolor, reprehenderit molestias vero quae debitis accusantium. Maiores eaque corporis accusamus? Odit veritatis natus facilis, tenetur doloremque expedita eveniet dolor animi.
+                        Dicta minus laborum ex error voluptatum rerum nihil magnam autem, quidem, impedit dolores numquam distinctio doloremque esse officiis possimus omnis laboriosam iure a eius eaque aliquam doloribus velit. Dolorem, illo!
+                        Libero, nemo repellendus a cumque perferendis deleniti possimus corrupti, ab cum eius nisi praesentium! Reiciendis libero error necessitatibus ea quibusdam natus minima vel, qui doloribus iste commodi earum. Recusandae, deleniti.
+                        Distinctio tenetur ab, sit velit consequuntur maiores. Nihil in magnam blanditiis laudantium ducimus sit esse sapiente corrupti eveniet ratione harum eaque, nulla, commodi iure illum ipsam modi expedita porro vitae?
+                        Recusandae iusto odio libero minima illo iure harum, suscipit dolores, nemo illum quisquam non facilis officiis porro nulla itaque numquam. Consequatur veritatis nam, voluptatum explicabo alias sapiente quod delectus quaerat!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  -->
+
+        <!-- Flex -->
+        <section class="section-odd">
+            <div class="container section-container">
+                <h2>Positioning with Flex</h2>
+                <div class="content flex" id="flex-container">
+                    <div class="flex-content flex-direction flex">
+                        <div class="box2 sidekicks">Item 1</div>
+                        <div class="box2 sidekicks">Item 2</div>
+                        <div class="box2 sidekicks">Item 3</div>
+                        <div class="box2 sidekicks">Item 4</div>
+
+                    </div>
+                    <div class="flex-content flex-wrap flex">
+                        <div class="box2 sidekicks">Item 1</div>
+                        <div class="box2 sidekicks">Item 2</div>
+                        <div class="box2 sidekicks">Item 3</div>
+                        <div class="box2 sidekicks">Item 4</div>
+                        <div class="box2 sidekicks">Item 5</div>
+                        <div class="box2 sidekicks">Item 6</div>
+                        <div class="box2 sidekicks">Item 7</div>
+                        <div class="box2 sidekicks">Item 8</div>
+                        <div class="box2 sidekicks">Item 9</div>
+                        <div class="box2 sidekicks">Item 10</div>
+                        <div class="box2 sidekicks">Item 11</div>
+                        <div class="box2 sidekicks">Item 12</div>
+                        <div class="box2 sidekicks">Item 13</div>
+                        <div class="box2 sidekicks">Item 14</div>
+                        <div class="box2 sidekicks">Item 15</div>
+                        <div class="box2 sidekicks">Item 16</div>
+                        <div class="box2 sidekicks">Item 17</div>
+                        <div class="box2 sidekicks">Item 18</div>
+                        <div class="box2 sidekicks">Item 19</div>
+                        <div class="box2 sidekicks">Item 20</div>
+                        <div class="box2 sidekicks">Item 21</div>
+                        <div class="box2 sidekicks">Item 22</div>
+                    </div>
+                    <div class="flex-content flex-grow flex">
+                        <div class="box2 sidekicks ">Item 1</div>
+                        <div class="box2 sidekicks">Item 2</div>
+                        <div class="box2 sidekicks item3">Item 3</div>
+                        <div class="box2 sidekicks item4">Item 4</div>
+                        <div class="box2 sidekicks">Item 5</div>
+
+                    </div>
+                    <div class="flex-content flex-gap flex" >
+                        <div class="box2 sidekicks">Item 1</div>
+                        <div class="box2 sidekicks">Item 2</div>
+                        <div class="box2 sidekicks">Item 3</div>
+                        <div class="box2 sidekicks">Item 4</div>
+                        <div class="box2 sidekicks">Item 5</div>
+                        <div class="box2 sidekicks">Item 6</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  -->
+        <a href="#header">
+
+            <div id="back-to-top">
+                <i class="fas fa-arrow-up pad"></i>
+            </div>
+        </a>
+    </main>
+    <footer>
+        <div class="container">
+            <nav class="footer">
+                <a href="#" class="instagram">
+                    <i class="fab fa-instagram fa-2x social-icon"></i>
+                </a>
+                <a href="#" class="twitter">
+                    <i class="fab fa-twitter fa-2x social-icon"></i>
+                </a>
+                <a href="#" class="facebook">
+                    <i class="fab fa-facebook fa-2x social-icon"></i>
+                </a>
+
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
