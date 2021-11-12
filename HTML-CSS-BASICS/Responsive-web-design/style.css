@@ -11,17 +11,22 @@ h1 {
   color: #f87171;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1080px) {
+@media screen and (min-width: 887px) and (max-width: 1200px) {
   body {
-    background-color: darkblue;
+    background-color: lightsalmon;
+  }
+
+  h1 {
+    font-size: 40px;
   }
 }
 
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 502px) {
   body {
-    background-color: #064e3b;
+    background-color: lightsalmon;
   }
+
   h1 {
-    font-size: 44px;
+    font-size: 20px;
   }
-}
+} */

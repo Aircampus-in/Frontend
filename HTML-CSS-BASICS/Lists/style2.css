@@ -1,8 +1,17 @@
-body {
-  background-color: gray;
+h1 {
+  color: #e44c65;
+
+  font-size: 72px;
+  text-align: center;
 }
 
-a {
+ul {
+  /* list-style-type: lower-roman;
+  list-style-position: inside; */
+  list-style: lower-roman inside;
+}
+
+/* a {
   text-decoration: none;
   color: white;
   font-size: 18px;
@@ -40,4 +49,4 @@ ul li {
   background-color: #e44c65;
   color: white;
   font-size: 18px;
-}
+} */

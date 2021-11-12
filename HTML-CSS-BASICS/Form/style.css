@@ -1,0 +1,46 @@
+body {
+  text-align: center;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.aside {
+  width: 500px;
+}
+
+.flex {
+  display: flex;
+  list-style: none;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+  padding-inline-start: 0;
+}
+
+.flex-wrap li {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  /* margin-right: 20px; */
+  text-align: left;
+  margin-bottom: 30px;
+}
+.inp-names label {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.inp-names input {
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.inp-radio p {
+  width: 100%;
+}
