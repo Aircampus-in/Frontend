@@ -9,5 +9,4 @@ const Tweet=(props)=>{
         </div>
     );
 }
-
 export default Tweet;
