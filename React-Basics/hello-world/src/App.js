@@ -6,7 +6,7 @@ import {Navbar} from './components/Navbar';
 
 const App = ()=> {
     return (
-      <Navbar title ="MyBlog" name="Souvik"/>
+      <Navbar  name="Souvik"/>
     );
   }
 
