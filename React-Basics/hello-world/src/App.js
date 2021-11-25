@@ -8,8 +8,11 @@ const App = ()=> {
     return (
       <>
       <Navbar name="Souvik"/>
-      <Tweets/>
-      <Counter/>
+      <div className="container">
+        <Tweets/>
+        <Counter/>
+      </div>
+      
       </>
     );
   }

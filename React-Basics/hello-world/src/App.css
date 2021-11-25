@@ -1,0 +1,49 @@
+.container {
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.name {
+  font-size: 30px;
+  color: rgb(169, 169, 236);
+  display: inline;
+  margin-right: 30px;
+}
+
+.tweet {
+  font-size: 18px;
+  color: white;
+  display: inline;
+}
+
+.inactive {
+  opacity: 0;
+  transition: 0.5s ease;
+  font-size: 30px;
+  margin-top: 20px;
+}
+.appear {
+  transition: 0.5s ease;
+  color: white;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.counter {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.counter-btn {
+  padding: 3px 15px;
+  border: none;
+  margin: 20px 20px 0 0;
+  border-radius: 5px;
+}
+
+.says {
+  margin-right: 20px;
+  color: rgb(205, 252, 255);
+  font-weight: bold;
+}

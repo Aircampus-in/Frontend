@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import '../App.css';
 
 
 
@@ -15,11 +16,11 @@ const Counter = ()=>{
     }
     return(
         <>
-        {toggle? <h6>It's visible</h6> : ''}
+        <h6 className={toggle? 'inactive' : 'appear' }> Its visible </h6>
         
-        <div>{counter}</div>
-        <button onClick={incrementer}>Click</button>
-        <button onClick={dissapears}>Toggle</button>
+        <div className="counter">{counter}</div>
+        <button className="counter-btn" onClick={incrementer}>Click</button>
+        <button className="counter-btn" onClick={dissapears}>Toggle</button>
         </>
     )
 }

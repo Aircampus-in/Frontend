@@ -1,5 +1,6 @@
 import React from 'react'
 import Tweet from './Tweet';
+import '../App.css'
 
 const Tweets=()=>{
     const tweets=[
@@ -9,7 +10,7 @@ const Tweets=()=>{
     ]
 
     return(
-        <section>
+        <section className="tweets">
             {tweets.map((tweet)=> (
             <Tweet name={tweet.name} tweet={tweet.tweet}/>
             ))}

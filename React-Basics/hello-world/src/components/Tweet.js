@@ -4,8 +4,9 @@ import React from 'react'
 const Tweet=(props)=>{
     return (
         <div>
-            <h1>{props.name}</h1>
-            <h2>{props.tweet}</h2>
+            <h1 className="name">{props.name}</h1>
+            <span className="says">says</span>
+            <h2 class="tweet">{props.tweet}</h2>
         </div>
     );
 }
