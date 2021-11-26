@@ -11,8 +11,8 @@ const Tweets=()=>{
 
     return(
         <section className="tweets">
-            {tweets.map((tweet)=> (
-            <Tweet name={tweet.name} tweet={tweet.tweet}/>
+            {tweets.map((tweet, index)=> (
+            <Tweet key={index} name={tweet.name} tweet={tweet.tweet}/>
             ))}
         </section>
     );
