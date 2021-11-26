@@ -6,7 +6,7 @@ const Tweet=(props)=>{
         <div>
             <h1 className="name">{props.name}</h1>
             <span className="says">says</span>
-            <h2 class="tweet">{props.tweet}</h2>
+            <h2 className="tweet">{props.tweet}</h2>
         </div>
     );
 }
