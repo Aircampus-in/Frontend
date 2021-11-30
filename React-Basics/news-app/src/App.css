@@ -55,7 +55,7 @@ ul {
 /* NewsItem */
 
 .news-card {
-  width: 30%;
+  width: 300px;
 }
 
 .news-img {
@@ -69,4 +69,8 @@ ul {
 .news-btn {
   border: none;
   color: white;
+  background-color: #111827;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
 }
