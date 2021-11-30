@@ -1,0 +1,72 @@
+/* General */
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+.container {
+  max-width: 1080px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* Flex */
+.col-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Header */
+.header {
+  background-color: #111827;
+  border-bottom-right-radius: 25px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-name {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav a {
+  margin-right: 20px;
+  color: white;
+}
+
+/* NewsItem */
+
+.news-card {
+  width: 30%;
+}
+
+.news-img {
+  width: 300px;
+}
+
+.news-desc {
+  text-align: justify;
+}
+
+.news-btn {
+  border: none;
+  color: white;
+}
