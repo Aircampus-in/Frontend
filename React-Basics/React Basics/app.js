@@ -1,20 +1,10 @@
-const heading = React.createElement(
-    'h1',
-    {class: 'title'},
-    'This is the Heading'
-)
+const heading = "to our website"
 
-const btn = React.createElement(
-    'button',
-    null,
-    'Sign up'
-)
-
-const header = React.createElement(
-    'header',
-    null,
-    heading, btn
-)
+// const btn = <button>Sign up</button>
+const header = <header>
+    <h1 className="header">This is the heading</h1>
+    <button>Sign up {heading}</button>
+</header>
 
 ReactDOM.render(
     header,
