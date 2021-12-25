@@ -1,68 +1,59 @@
 function Header(){
     return(
         <header>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a className="dropdown-item" href="#">Action</a></li>
-                        <li><a className="dropdown-item" href="#">Another action</a></li>
-                        <li><hr className="dropdown-divider"/></li>
-                        <li><a className="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link disabled">Disabled</a>
-                    </li>
+        <div className="container">
+            <nav className="navbar">
+                <h1><a href="">News App</a></h1>
+                <ul className="nav-links">
+                    <li className="nav-item"><a href="">Headlines</a></li>
+                    <li className="nav-item"><a href="">About</a></li>
+                    <li className="nav-item"><a href="">Contact</a></li>
                 </ul>
-                <form className="d-flex">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                </div>
-            </div>
             </nav>
-        </header>
-    );
-    
-}
-
-
-function Navbar(){
-        class HelloMessage extends React.Component {
-    render() {
-        return (
-        <div>
-            Hello {this.props.name}
         </div>
-        );
-    }
-    }
-
-    ReactDOM.render(
-    <HelloMessage name="Taylor" />,
-    document.getElementById('hello-example')
+    </header>
     );
 }
 
 
+function Article(){
+    return(
+        <div className = "container-article">
+            <img className="articlee-img"src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
+            <h2 className="article-title">The Mountains are Calling</h2>
+            <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi.</p>
+            <button className="article-btn">Read More</button>
+        </div>
+    );
+}
+
+function Footer(){
+    return(
+        <footer>
+            <div className="container">
+                <ul className="social">
+                    <li className="social-item"><a href="">Twitter</a></li>
+                    <li className="social-item"><a href="">LinkedIn</a></li>
+                    <li className="social-item"><a href="">Instagram</a></li>
+                </ul>
+
+            </div>
+            
+        </footer>
+    );
+}
+
+function App(){
+    return(
+        <div>
+            <Header/>
+            <Article/>
+            <Footer/>
+        </div>
+    );
+}
 
 ReactDOM.render(
-    <Header/>,
+    <App/>,
     document.getElementById('root')
 )
