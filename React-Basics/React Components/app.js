@@ -31,16 +31,16 @@ function Article(props){
 }
 
 
-function Reaction(){
+function Reaction(props){
     return(
         <div className="reaction-container">
             <a className="like" href="">
-                <i class="fas fa-heart fa-2x"></i>
-                <span>12</span>
+                <i className="fas fa-heart fa-2x"></i>
+                <span>{props.like}</span>
             </a>
             <a className="comment" href="">
-                <i class="fas fa-comment fa-2x"></i>
-                <span>8</span>
+                <i className="fas fa-comment fa-2x"></i>
+                <span>{props.comment}</span>
             </a>
         </div>
     );
