@@ -21,9 +21,27 @@ function Article(props){
     return(
         <div className = "container-article">
             <img className="article-img"src= {props.img} alt="" />
-            <h2 className="article-title">{props.title}</h2>
-            <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi.</p>
-            <button className="article-btn">Read More</button>
+                <h2 className="article-title">{props.title}</h2>
+                <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
+                <button className="article-btn">Read More</button>
+                <Reaction like={props.like} comment ={props.comment}/>
+            
+        </div>
+    );
+}
+
+
+function Reaction(){
+    return(
+        <div className="reaction-container">
+            <a className="like" href="">
+                <i class="fas fa-heart fa-2x"></i>
+                <span>12</span>
+            </a>
+            <a className="comment" href="">
+                <i class="fas fa-comment fa-2x"></i>
+                <span>8</span>
+            </a>
         </div>
     );
 }
@@ -48,10 +66,10 @@ function App(){
     return(
         <div>
             <Header/>
-            <Article title= "The Mountains are Calling" img="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"/>
-            <Article title= "The Setting Sun" img="https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"/>
-            <Article title= "Of Wooden Cottages and Snowy Mountains" img="https://images.unsplash.com/photo-1520984032042-162d526883e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"/>
-            <Article title= "Food is Happiness" img="https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"/>
+            <Article title= "The Mountains are Calling" img="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" like={8} comment={12}/>
+            <Article title= "The Setting Sun" img="https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" like={8} comment={2}/>
+            <Article title= "Of Wooden Cottages and Snowy Mountains" img="https://images.unsplash.com/photo-1520984032042-162d526883e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" like={20} comment={8}/>
+            <Article title= "Food is Happiness" img="https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" like={3} comment={10}/>
             
             <Footer/>
         </div>
