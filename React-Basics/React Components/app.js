@@ -32,20 +32,34 @@ function Article(props){
 }
 
 
-function Reaction(props){
-    return(
+class Reaction extends React.Component{
+
+
+    state = {
+        isLiked: false
+    };
+
+    incrementLike() {
+        this.setState({
+            isLiked :!this.state.isLiked
+        });
+    }
+
+    render(){
+        return(
         <div className="reaction-container">
-            <a className="like" href="">
-               <i className="fas fa-heart fa-2x"></i>
-               <i className="far fa-heart fa-2x"></i>
-                <span>{props.like}</span>
-            </a>
-            <a className="comment" href="">
+            <li className="like" onClick={this.incrementLike.bind(this)}>
+               {this.state.isLiked ?<div><i className="fas fa-heart fa-2x"></i><span>{this.props.like + 1}</span></div> : <div><i className="far fa-heart fa-2x"></i><span>{this.props.like}</span></div>}
+                
+            </li>
+            <li className="comment" href="">
                 <i className="fas fa-comment fa-2x"></i>
-                <span>{props.comment}</span>
-            </a>
+                <span>{this.props.comment}</span>
+            </li>
         </div>
     );
+    }
+   
 }
 
 
