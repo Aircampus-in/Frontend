@@ -212,20 +212,26 @@ h1 a {
 .reaction-container {
   display: flex;
   justify-content: right;
+  align-items: center;
 }
 
-.like {
-  color: #ff495e;
-  margin-left: 30px;
-}
-
+.like,
 .comment {
-  color: #5656ff;
   margin-left: 30px;
 }
 
-.like span,
-.comment span {
+.like,
+.like-counter {
+  color: #ff495e;
+}
+
+.comment,
+.comment-counter {
+  color: #5656ff;
+}
+
+.like-counter,
+.comment-counter {
   font-weight: bold;
   margin-left: 8px;
 }

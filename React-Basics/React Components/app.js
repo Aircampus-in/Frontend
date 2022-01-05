@@ -25,7 +25,7 @@ function Article(props){
                 <h2 className="article-title">{props.title}</h2>
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
                 <button className="article-btn">Read More</button>
-                <Reaction like={props.like} comment = {props.comment}/>
+                <Reaction/>
             
         </div>
     );
@@ -36,26 +36,27 @@ class Reaction extends React.Component{
 
 
     state = {
-        isLiked: false
+        like: 0,
+        comment: 0
     };
 
     incrementLike() {
         this.setState({
-            isLiked :!this.state.isLiked
+            like : this.state.like + 1
         });
     }
 
     render(){
         return(
         <div className="reaction-container">
-            <li className="like" onClick={this.incrementLike.bind(this)}>
-               {this.state.isLiked ?<div><i className="fas fa-heart fa-2x"></i><span>{this.props.like + 1}</span></div> : <div><i className="far fa-heart fa-2x"></i><span>{this.props.like}</span></div>}
-                
-            </li>
-            <li className="comment" href="">
+            <a className="like" onClick={this.incrementLike.bind(this)}>
+               <i className="fas fa-heart fa-2x"></i>
+            </a>
+            <span className="like-counter">{this.state.like}</span>
+            <a className="comment" href="">
                 <i className="fas fa-comment fa-2x"></i>
-                <span>{this.props.comment}</span>
-            </li>
+            </a>
+            <span className="comment-counter">{this.state.comment}</span>
         </div>
     );
     }
@@ -87,58 +88,17 @@ function App(){
     return(
         <div>
             <Header/>
-            <Article title= "The Mountains are Calling" img="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" like={8} comment = {17}/>
-            <Article title= "The Setting Sun" img="https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" like={18} comment = {67}/>
-            <Article title= "Of Wooden Cottages and Snowy Mountains" img="https://images.unsplash.com/photo-1520984032042-162d526883e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" like={2} comment = {8}/>
-            <Article title= "Food is Happiness" img="https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" like={10} comment = {7}/>
+            <Article title= "The Mountains are Calling" img="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"/>
+            <Article title= "The Setting Sun" img="https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"/>
+            <Article title= "Of Wooden Cottages and Snowy Mountains" img="https://images.unsplash.com/photo-1520984032042-162d526883e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"/>
+            <Article title= "Food is Happiness" img="https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"/>
             
             <Footer/>
         </div>
     );
 }
 
-class MarkdownEditor extends React.Component {
-  constructor(props) {
-    super(props);
-    this.md = new Remarkable();
-    this.handleChange = this.handleChange.bind(this);
-    this.state = { value: 'Hello, **world**!' };
-  }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-  }
-
-  getRawMarkup() {
-    return { __html: this.md.render(this.state.value) };
-  }
-
-  render() {
-    return (
-      <div className="MarkdownEditor">
-        <h3>Input</h3>
-        <label htmlFor="markdown-content">
-          Enter some markdown
-        </label>
-        <textarea
-          id="markdown-content"
-          onChange={this.handleChange}
-          defaultValue={this.state.value}
-        />
-        <h3>Output</h3>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={this.getRawMarkup()}
-        />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(
-  <MarkdownEditor />,
-  document.getElementById('markdown-example')
-);
 ReactDOM.render(
     <App/>,
     document.getElementById('root')
