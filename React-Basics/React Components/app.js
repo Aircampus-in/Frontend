@@ -43,8 +43,10 @@ class Reaction extends React.Component{
     }
     
     incrementLike(){
-        console.log(this)
-
+        // console.log(this)
+        this.setState({
+            likes : this.state.likes + 1
+        })
     }
 
     render(){
