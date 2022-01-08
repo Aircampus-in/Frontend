@@ -42,12 +42,15 @@ class Reaction extends React.Component{
         }
     }
     
-    
+    incrementLike(){
+        console.log(this)
+
+    }
 
     render(){
         return(
             <div className="reaction-container">
-                <a className="like" onClick={this.state.handleClick.bind(this)}>
+                <a className="like" onClick={this.incrementLike.bind(this)}>
                     {
                     this.state.likes === 0 ? 
                     <i className="far fa-heart fa-2x"></i>
