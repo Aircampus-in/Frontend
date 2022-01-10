@@ -199,12 +199,35 @@ h1 a {
 }
 
 .article-btn {
+  cursor: pointer;
   border: none;
   padding: 8px 20px;
-  background-color: rgb(8, 7, 7);
+  background-color: rgb(24, 19, 19);
   color: white;
   border-radius: 5px;
   margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.article-btn:hover {
+  background-color: rgb(0, 0, 0);
+  transition: 0.3s;
+}
+.remove-btn {
+  cursor: pointer;
+  border: none;
+  margin-left: 20px;
+  padding: 8px 20px;
+  background-color: rgb(255, 47, 47);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.remove-btn:hover {
+  background-color: rgb(255, 13, 13);
+  transition: 0.3s;
 }
 
 /* Reaction */
@@ -218,6 +241,7 @@ h1 a {
 .like,
 .comment {
   margin-left: 30px;
+  cursor: pointer;
 }
 
 .like,

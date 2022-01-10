@@ -23,7 +23,7 @@ function Article(props){
                 <h2 className="article-title">{props.title}</h2>
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
                 <button className="article-btn">Read More</button>
-                <button className="article-btn" onClick={()=>props.removeArticle(props.id)}>Remove Article</button>
+                <button className="remove-btn" onClick={()=>props.removeArticle(props.id)}>Remove</button>
                 <Reaction />
             
         </div>
