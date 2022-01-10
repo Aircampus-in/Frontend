@@ -54,7 +54,6 @@ class Reaction extends React.Component{
     }
     
     incrementLike(){
-        // console.log(this)
         this.setState({
             likes : this.state.likes + 1
         })
@@ -103,11 +102,12 @@ function Footer(){
 
 
 
-function App(){
+function App(props){
+    console.log(props.initialArticles)
     return(
         <div>
             <Header />
-            {articles.map(article=><Article title={article.title} img ={article.img}/>)}
+            {props.initialArticles.map((article)=><Article title={article.name} img={article.img}/>)}
             <Footer/>
         </div>
     );
