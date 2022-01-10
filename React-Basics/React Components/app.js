@@ -23,6 +23,7 @@ function Article(props){
                 <h2 className="article-title">{props.title}</h2>
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
                 <button className="article-btn">Read More</button>
+                <button className="article-btn" onClick={()=>props.removeArticle(props.id)}>Remove Article</button>
                 <Reaction />
             
         </div>
@@ -32,24 +33,22 @@ function Article(props){
 
 class Reaction extends React.Component{
 
-    constructor(){
-        super()
-        this.state ={
-            likes : 0,
-            comments : 0
-        }
+    state ={
+        likes : 0,
+        comments : 0
     }
+
     
-    incrementLike(){
-        this.setState({
-            likes : this.state.likes + 1
-        })
+    incrementLike=()=>{
+        this.setState(prevState =>({
+            likes : prevState.likes + 1
+        }));
     }
 
     render(){
         return(
             <div className="reaction-container">
-                <a className="like" onClick={this.incrementLike.bind(this)}>
+                <a className="like" onClick={this.incrementLike}>
                     {
                     this.state.likes === 0 ? 
                     <i className="far fa-heart fa-2x"></i>
@@ -109,6 +108,13 @@ class App extends React.Component{
         id:4}
         ]
     }
+
+
+    handleRemoveArticle=(id)=>{
+        this.setState(prevState=>({
+            articles: prevState.articles.filter(article => article.id !== id)
+        }));
+    }
         
 
 
@@ -116,7 +122,12 @@ class App extends React.Component{
         return(
         <div>
             <Header />
-            {this.state.articles.map((article)=><Article title={article.name} img={article.img} key={article.id.toString()}/>)}
+            {this.state.articles.map((article)=><Article 
+            title={article.name} 
+            img={article.img} 
+            id={article.id}
+            key={article.id.toString()}
+            removeArticle={this.handleRemoveArticle}/>)}
             <Footer/>
         </div>
     );
