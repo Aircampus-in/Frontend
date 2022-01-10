@@ -106,9 +106,8 @@ function Footer(){
 function App(){
     return(
         <div>
-            <Header/>
-            
-            
+            <Header />
+            {articles.map(article=><Article title={article.title} img ={article.img}/>)}
             <Footer/>
         </div>
     );
@@ -116,6 +115,6 @@ function App(){
 
 
 ReactDOM.render(
-    <App/>,
+    <App initialArticles= {articles}/>,
     document.getElementById('root')
 )
