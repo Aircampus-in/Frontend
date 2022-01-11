@@ -25,6 +25,7 @@ function Article(props){
                 <button className="article-btn">Read More</button>
                 <button className="remove-btn" onClick={()=>props.removeArticle(props.id)}>Remove</button>
                 <Reaction />
+                <CommentForm/>
             
         </div>
     );
@@ -67,6 +68,17 @@ class Reaction extends React.Component{
         
 }
 
+
+class CommentForm extends React.Component{
+    render(){
+        return(
+            <form className="form-container">
+                <input type="text" className="comment-box"/>
+                <button className="comment-btn"><i class="fas fa-caret-square-right fa-3x"></i></button>
+            </form>
+        )
+    }
+}
 
 
 
