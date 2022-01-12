@@ -17,6 +17,7 @@ function Header(){
 
 
 function Article(props){
+
     return(
         <div className = "container-article">
             <img className="article-img"src= {props.img} alt="" />
@@ -25,7 +26,8 @@ function Article(props){
                 <button className="article-btn">Read More</button>
                 <button className="remove-btn" onClick={()=>props.removeArticle(props.id)}>Remove</button>
                 <Reaction />
-                <CommentForm/>
+                <Comments/>
+                <CommentForm addComment={this.handleCommentSubmit}/>
             
         </div>
     );
@@ -35,14 +37,14 @@ function Article(props){
 class Reaction extends React.Component{
 
     state ={
-        likes : 0,
-        comments : 0
+        likeCounter : 0,
+        commentCounter : 0
     }
 
     
     incrementLike=()=>{
         this.setState(prevState =>({
-            likes : prevState.likes + 1
+            likeCounter : prevState.likeCounter + 1
         }));
     }
 
@@ -51,17 +53,17 @@ class Reaction extends React.Component{
             <div className="reaction-container">
                 <a className="like" onClick={this.incrementLike}>
                     {
-                    this.state.likes === 0 ? 
+                    this.state.likeCounter === 0 ? 
                     <i className="far fa-heart fa-2x"></i>
                      : 
                     <i className="fas fa-heart fa-2x"></i>
                     }
                 </a>
-                <span className="like-counter">{this.state.likes}</span>
+                <span className="like-counter">{this.state.likeCounter}</span>
                 <a className="comment" href="">
                     <i className="fas fa-comment fa-2x"></i>
                 </a>
-                <span className="comment-counter">{this.state.comments}</span>
+                <span className="comment-counter">{this.state.commentCounter}</span>
             </div>
     );
     }
@@ -69,12 +71,45 @@ class Reaction extends React.Component{
 }
 
 
-class CommentForm extends React.Component{
+class Comments extends React.Component{
+    state={
+        comments: [
+            // {comment: "Hello", id: 1}
+        ]
+    }
+
     render(){
         return(
-            <form className="form-container">
-                <input type="text" className="comment-box"/>
-                <button className="comment-btn"><i class="fas fa-caret-square-right fa-3x"></i></button>
+            <div>
+            {this.state.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
+        </div>
+        )  
+    }
+}
+
+class CommentForm extends React.Component{
+
+    state = {
+        value: ""
+    }
+
+    handleChange=(e)=>{
+        this.setState({
+            value: e.target.value
+        })
+        console.log(this.state)
+    }
+
+    handleCommentSubmit=(e)=>{
+        e.preventDefault();
+        this.props.addComment(this.state.value)
+    }
+
+    render(){
+        return(
+            <form className="form-container" onSubmit={this.handleCommentSubmit}>
+                <input type="text" placeholder="Enter Comment"  className="comment-box" onChange={this.handleChange}/>
+                <button className="comment-btn"><i className="fas fa-arrow-right fa-2x"></i></button>
             </form>
         )
     }
