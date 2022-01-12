@@ -16,21 +16,24 @@ function Header(){
 }
 
 
-function Article(props){
+class Article extends React.Component{
 
-    return(
+    render(){
+            console.log(this.props.addComment)
+        return(
         <div className = "container-article">
-            <img className="article-img"src= {props.img} alt="" />
-                <h2 className="article-title">{props.title}</h2>
+            <img className="article-img"src= {this.props.img} alt="" />
+                <h2 className="article-title">{this.props.title}</h2>
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
                 <button className="article-btn">Read More</button>
-                <button className="remove-btn" onClick={()=>props.removeArticle(props.id)}>Remove</button>
+                <button className="remove-btn" onClick={()=>this.props.removeArticle(this.props.id)}>Remove</button>
                 <Reaction />
-                <Comments/>
-                <CommentForm addComment={this.handleCommentSubmit}/>
-            
+                {/* <Comments/> */}
+                <CommentForm addComment={()=>this.props.handleAddComment}/>
         </div>
     );
+    }
+    
 }
 
 
@@ -71,46 +74,55 @@ class Reaction extends React.Component{
 }
 
 
-class Comments extends React.Component{
-    state={
-        comments: [
-            // {comment: "Hello", id: 1}
-        ]
-    }
+// class Comments extends React.Component{
+//     state={
+//         comments: [
+//             {comment: "Hello", id: 1}
+//         ]
+//     }
 
-    render(){
-        return(
-            <div>
-            {this.state.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
-        </div>
-        )  
-    }
-}
+//     render(){
+//         return(
+//             <div>
+//             {this.state.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
+//         </div>
+//         )  
+//     }
+// }
 
 class CommentForm extends React.Component{
 
     state = {
-        value: ""
+        value: "",
+        comments: [
+            {comment: "Hello", id: 1}
+        ]
     }
 
     handleChange=(e)=>{
         this.setState({
             value: e.target.value
         })
-        console.log(this.state)
     }
 
-    handleCommentSubmit=(e)=>{
+
+    handleSubmit=(e)=>{
+        console.log(this)
         e.preventDefault();
         this.props.addComment(this.state.value)
     }
 
     render(){
+        console.log(this.props.addComment)
         return(
-            <form className="form-container" onSubmit={this.handleCommentSubmit}>
+            <div>
+                {this.state.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
+                <form className="form-container" onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="Enter Comment"  className="comment-box" onChange={this.handleChange}/>
                 <button className="comment-btn"><i className="fas fa-arrow-right fa-2x"></i></button>
             </form>
+            </div>
+            
         )
     }
 }
@@ -163,6 +175,17 @@ class App extends React.Component{
         }));
     }
         
+    handleAddComment=(comment)=>{
+        
+        this.setState({
+            comments: [
+                {
+                    comment: comment,
+                    id: 6
+                }
+            ]
+        })
+    }
 
 
     render(){
@@ -174,7 +197,8 @@ class App extends React.Component{
             img={article.img} 
             id={article.id}
             key={article.id.toString()}
-            removeArticle={this.handleRemoveArticle}/>)}
+            removeArticle={this.handleRemoveArticle}
+            addComment={this.handleAddComment}/>)}
             <Footer/>
         </div>
     );

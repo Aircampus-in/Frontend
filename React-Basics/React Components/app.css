@@ -271,19 +271,23 @@ h1 a {
 
 .comment-box {
   width: 80%;
-  height: 30px;
-  border-radius: 0;
+  height: 29px;
+  border-radius: 3px;
   border: 2px solid rgb(189, 188, 188);
+  padding: 1px 4px;
 }
 
 .comment-btn {
   border: none;
-  background-color: white;
-  padding: 0;
+  padding: 0px;
+  color: white;
 }
 
 .comment-btn i {
-  color: rgb(39, 39, 39);
+  color: white;
+  background-color: rgb(8, 7, 7);
+  padding: 4px 10px;
+  border-radius: 3px;
 }
 
 /* Footer */
