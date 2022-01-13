@@ -19,7 +19,6 @@ function Header(){
 class Article extends React.Component{
 
     render(){
-            console.log(this.props.addComment)
         return(
         <div className = "container-article">
             <img className="article-img"src= {this.props.img} alt="" />
@@ -29,7 +28,7 @@ class Article extends React.Component{
                 <button className="remove-btn" onClick={()=>this.props.removeArticle(this.props.id)}>Remove</button>
                 <Reaction />
                 {/* <Comments/> */}
-                <CommentForm addComment={()=>this.props.handleAddComment} value={this.props.value} comments={this.props.comments} onChange={this.props.onChange}/>
+                <CommentForm addComment={this.props.addComment} value={this.props.value} comments={this.props.comments} onChange={this.props.onChange}/>
         </div>
     );
     }
@@ -98,7 +97,6 @@ class CommentForm extends React.Component{
 
 
     handleSubmit=(e)=>{
-        console.log(this.props)
         e.preventDefault();
         this.props.addComment(this.props.value)
         
@@ -106,7 +104,6 @@ class CommentForm extends React.Component{
     }
 
     render(){
-        console.log(this.props)
         return(
             <div>
                 {this.props.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
@@ -160,9 +157,7 @@ class App extends React.Component{
         id:4}
         ],
         value: "",
-        comments: [
-            {comment: "Hello", id: 1}
-        ]
+        comments: []
     }
 
 
@@ -174,19 +169,25 @@ class App extends React.Component{
 
 
      handleChange=(e)=>{
-        console.log(e.target.value)
+        // console.log(e.target.value)
         this.setState({
             value: e.target.value
         });
     }
         
+    // Initiating previous player ID
+    prevCommentId = -1;
+
+
+
     handleAddComment=(comment)=>{
-        
         this.setState({
+            
             comments: [
+                ...this.state.comments,
                 {
                     comment: comment,
-                    id: 6
+                    id: this.prevCommentId += 1
                 }
             ]
         })
@@ -194,7 +195,6 @@ class App extends React.Component{
 
 
     render(){
-        console.log(this.state.value)
         return(
         <div>
             <Header />
