@@ -29,7 +29,7 @@ class Article extends React.Component{
                 <button className="remove-btn" onClick={()=>this.props.removeArticle(this.props.id)}>Remove</button>
                 <Reaction likeCounter={this.props.likeCounter} commentCounter={this.props.commentCounter} incrementLike={this.props.incrementLike}/>
                 {/* <Comments/> */}
-                <CommentForm/>
+                <CommentForm addComment={this.props.addComment} value={this.props.value} comments={this.props.comments} onChange={this.props.onChange}/>
         </div>
     );
     }
@@ -83,12 +83,19 @@ class Reaction extends React.Component{
 
 class CommentForm extends React.Component{
 
+
+    handleSubmit=(e)=>{
+        e.preventDefault();
+        this.props.addComment(this.props.value);
+
+    }
+
     render(){
         return(
             <div>
-                {/* {this.props.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)} */}
-                <form className="form-container"> 
-                <input type="text" placeholder="Enter Comment"  className="comment-box"/>
+                {this.props.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
+                <form className="form-container" onSubmit={this.handleSubmit}> 
+                <input type="text" placeholder="Enter Comment"  className="comment-box" onChange={this.props.onChange}/>
                 <button className="comment-btn"><i className="fas fa-arrow-right fa-2x"></i></button>
             </form>
             </div>
@@ -136,6 +143,8 @@ class App extends React.Component{
         {title: "Food is Happiness", img:"https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
         id:4}
         ],
+        value: "",
+        comments: [],
         likeCounter : 0,
         commentCounter : 0
     }
@@ -157,6 +166,36 @@ class App extends React.Component{
     }
 
 
+     handleChange=(e)=>{
+        // console.log(e.target.value)
+        this.setState({
+            value: e.target.value
+        });
+    }
+        
+    // Initiating previous player ID
+    prevCommentId = -1;
+
+
+
+    handleAddComment=(comment)=>{
+        
+        this.setState(prevState=>{
+            return{
+                comments: [
+                ...prevState.comments,
+                    {
+                    comment: comment,
+                    id: this.prevCommentId += 1
+                    }
+                ],
+                value: ""
+        };
+            
+        })
+    }
+
+
     render(){
         return(
         <div>
@@ -167,6 +206,10 @@ class App extends React.Component{
             id={article.id}
             key={article.id.toString()}
             removeArticle={this.handleRemoveArticle}
+            addComment={this.handleAddComment}
+            value={this.state.value}
+            comments = {this.state.comments}
+            onChange={this.handleChange}
             likeCounter={this.state.likeCounter}
             commentCounter={this.state.commentCounter}
             incrementLike={this.incrementLike}/>)}
