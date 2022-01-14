@@ -18,6 +18,44 @@ function Header(){
 
 class Article extends React.Component{
 
+    state={
+        likeCounter : 0,
+        commentCounter : 0,
+        value:'',
+        comments: []
+    }
+
+    incrementLike=()=>{
+    this.setState(prevState =>({
+        likeCounter : prevState.likeCounter + 1
+    }));
+    }
+
+    handleChange=(e)=>{
+    this.setState({
+        value: e.target.value
+    })
+    }
+    
+
+
+
+    handleSubmit=(comment)=>{
+        comment.preventDefault();
+        this.setState(prevState=>{
+            return{
+                comments: [
+                ...prevState.comments,
+                    {
+                    comment : this.state.value,
+                    id: this.state.comments.length
+                    }
+                ],
+                value: ""
+            }
+        })
+    }
+
     render(){
         return(
         <div className = "container-article">
@@ -26,9 +64,9 @@ class Article extends React.Component{
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
                 <button className="article-btn">Read More</button>
                 <button className="remove-btn" onClick={()=>this.props.removeArticle(this.props.id)}>Remove</button>
-                <Reaction likeCounter={this.props.likeCounter} commentCounter={this.props.commentCounter} incrementLike={this.props.incrementLike}/>
+                <Reaction likeCounter={this.state.likeCounter} commentCounter={this.state.commentCounter} incrementLike={this.incrementLike}/>
                 {/* <Comments/> */}
-                <CommentForm/>
+                <CommentForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} comments={this.state.comments}/>
         </div>
     );
     }
@@ -82,41 +120,12 @@ class Reaction extends React.Component{
 
 class CommentForm extends React.Component{
 
-
-    state={
-        value:'',
-        comments: []
-            
-    }
-
-
-    handleChange=(e)=>{
-        this.setState({
-            value: e.target.value
-        })
-    }
-
-
-    handleSubmit=(comment)=>{
-        comment.preventDefault();
-        console.log(this.state.value)
-        this.setState({
-            comments: [
-                ...this.state.comments,
-                {
-                comment : this.state.value,
-                id: 5
-            }
-            ]
-        })
-    }
-
     render(){
         return(
             <div>
-                {this.state.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
-                <form className="form-container" onSubmit={this.handleSubmit}> 
-                <input type="text" placeholder="Enter Comment"  className="comment-box" onChange={this.handleChange}/>
+                {this.props.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
+                <form className="form-container" onSubmit={this.props.handleSubmit}> 
+                <input type="text" placeholder="Enter Comment"  className="comment-box" onChange={this.props.handleChange}/>
                 <button className="comment-btn"><i className="fas fa-arrow-right fa-2x"></i></button>
             </form>
             </div>
@@ -164,18 +173,9 @@ class App extends React.Component{
         {title: "Food is Happiness", img:"https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
         id:4}
         ],
-        likeCounter : 0,
-        commentCounter : 0
     }
 
 
-
-    
-    incrementLike=()=>{
-        this.setState(prevState =>({
-            likeCounter : prevState.likeCounter + 1
-        }));
-    }
 
 
     handleRemoveArticle=(id)=>{
@@ -194,10 +194,7 @@ class App extends React.Component{
             img={article.img} 
             id={article.id}
             key={article.id.toString()}
-            removeArticle={this.handleRemoveArticle}
-            likeCounter={this.state.likeCounter}
-            commentCounter={this.state.commentCounter}
-            incrementLike={this.incrementLike}/>)}
+            removeArticle={this.handleRemoveArticle}/>)}
             <Footer/>
         </div>
     );
