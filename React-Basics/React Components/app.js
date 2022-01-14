@@ -19,7 +19,6 @@ function Header(){
 class Article extends React.Component{
 
     render(){
-        console.log(this.props.likeCounter)
         return(
         <div className = "container-article">
             <img className="article-img"src= {this.props.img} alt="" />
@@ -83,12 +82,41 @@ class Reaction extends React.Component{
 
 class CommentForm extends React.Component{
 
+
+    state={
+        value:'',
+        comments: []
+            
+    }
+
+
+    handleChange=(e)=>{
+        this.setState({
+            value: e.target.value
+        })
+    }
+
+
+    handleSubmit=(comment)=>{
+        comment.preventDefault();
+        console.log(this.state.value)
+        this.setState({
+            comments: [
+                ...this.state.comments,
+                {
+                comment : this.state.value,
+                id: 5
+            }
+            ]
+        })
+    }
+
     render(){
         return(
             <div>
-                {/* {this.props.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)} */}
-                <form className="form-container"> 
-                <input type="text" placeholder="Enter Comment"  className="comment-box"/>
+                {this.state.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
+                <form className="form-container" onSubmit={this.handleSubmit}> 
+                <input type="text" placeholder="Enter Comment"  className="comment-box" onChange={this.handleChange}/>
                 <button className="comment-btn"><i className="fas fa-arrow-right fa-2x"></i></button>
             </form>
             </div>
