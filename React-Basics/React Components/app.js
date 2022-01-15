@@ -21,8 +21,8 @@ class Article extends React.Component{
     state={
         likeCounter : 0,
         commentCounter : 0,
-        value:'',
-        comments: []
+        value: '',
+        comments: []          
     }
 
     incrementLike=()=>{
@@ -30,30 +30,30 @@ class Article extends React.Component{
         likeCounter : prevState.likeCounter + 1
     }));
     }
-
-    handleChange=(e)=>{
-    this.setState({
-        value: e.target.value
-    })
-    }
     
+    handleChange=(e)=>{
+        this.setState({
+            value: e.target.value
+        })
+    }
 
-
-
-    handleSubmit=(comment)=>{
-        comment.preventDefault();
+    handleSubmit=(e)=>{
+        e.preventDefault();
         this.setState(prevState=>{
             return{
-                comments: [
+                comments:[
                 ...prevState.comments,
                     {
-                    comment : this.state.value,
-                    id: this.state.comments.length
+                    comment: prevState.value,
+                    id: prevState.comments.length
                     }
                 ],
-                value: ""
+                commentCounter: prevState.comments.length + 1,
+                value: ''
             }
+            
         })
+
     }
 
     render(){
@@ -66,7 +66,7 @@ class Article extends React.Component{
                 <button className="remove-btn" onClick={()=>this.props.removeArticle(this.props.id)}>Remove</button>
                 <Reaction likeCounter={this.state.likeCounter} commentCounter={this.state.commentCounter} incrementLike={this.incrementLike}/>
                 {/* <Comments/> */}
-                <CommentForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} comments={this.state.comments}/>
+                <CommentForm value={this.state.value} comments={this.state.comments} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         </div>
     );
     }
@@ -75,8 +75,6 @@ class Article extends React.Component{
 
 
 class Reaction extends React.Component{
-
-
 
     render(){
         // console.log(this.props.incrementLike)
@@ -123,11 +121,13 @@ class CommentForm extends React.Component{
     render(){
         return(
             <div>
-                {this.props.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
+                <div>
+                    {this.props.comments.map((c)=><p key={c.id.toString()}>{c.comment}</p>)}
+                </div>
                 <form className="form-container" onSubmit={this.props.handleSubmit}> 
-                <input type="text" placeholder="Enter Comment"  className="comment-box" onChange={this.props.handleChange}/>
+                <input type="text" value={this.props.value} placeholder="Enter Comment"  className="comment-box" onChange={this.props.handleChange}/>
                 <button className="comment-btn"><i className="fas fa-arrow-right fa-2x"></i></button>
-            </form>
+                </form>
             </div>
             
         )
