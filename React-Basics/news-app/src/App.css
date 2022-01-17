@@ -1,38 +1,312 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: "Poppins", sans-serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* General */
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header */
+header {
+  background-color: rgb(8, 7, 7);
+  padding: 20px 0;
+  margin-bottom: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.nav-links {
+  display: flex;
+}
+
+h1 a {
+  font-size: 45px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-item a {
+  font-size: 18px;
+  color: white;
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Article */
+
+.container-article {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  border: 1px solid #dbcfcf80;
+  padding: 20px;
+  border-radius: 8px;
+}
+.article-img {
+  width: 800px;
+  margin-bottom: 30px;
+}
+
+.article-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.article-para {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.article-btn {
+  cursor: pointer;
+  border: none;
+  padding: 8px 20px;
+  background-color: rgb(24, 19, 19);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.article-btn:hover {
+  background-color: rgb(0, 0, 0);
+  transition: 0.3s;
+}
+.remove-btn {
+  cursor: pointer;
+  border: none;
+  margin-left: 20px;
+  padding: 8px 20px;
+  background-color: rgb(255, 47, 47);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.remove-btn:hover {
+  background-color: rgb(255, 13, 13);
+  transition: 0.3s;
+}
+
+/* Reaction */
+
+.reaction-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.like,
+.comment {
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.like,
+.like-counter {
+  color: #ff495e;
+}
+
+.comment,
+.comment-counter {
+  color: #5656ff;
+}
+
+.like-counter,
+.comment-counter {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+/* Comment Box */
+
+.form-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-box {
+  width: 80%;
+  height: 29px;
+  border-radius: 3px;
+  border: 2px solid rgb(189, 188, 188);
+  padding: 1px 4px;
+}
+
+.comment-btn {
+  border: none;
+  padding: 0px;
+  color: white;
+}
+
+.comment-btn i {
+  color: white;
+  background-color: rgb(8, 7, 7);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+/* Footer */
+footer {
+  background-color: rgb(8, 7, 7);
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.copyright {
+  color: white;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+}
+.social-item a {
+  font-size: 18px;
+  color: white;
+  margin-right: 50px;
 }
