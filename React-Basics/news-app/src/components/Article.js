@@ -1,6 +1,8 @@
 import React from 'react';
 import Reaction from './Reaction';
-import CommentForm from './CommentForm'
+import CommentForm from './CommentForm';
+import PropTypes from 'prop-types';
+
 
 class Article extends React.Component{
 
@@ -47,7 +49,6 @@ class Article extends React.Component{
 
         const{id, img, removeArticle, title} = this.props;
 
-        console.log(this.props.title + 'is rendered')
         return(
         <div className = "container-article">
             <img className="article-img"src= {img} alt="" />
@@ -57,11 +58,20 @@ class Article extends React.Component{
                 <button className="remove-btn" onClick={()=>removeArticle(id)}>Remove</button>
                 <Reaction likeCounter={this.state.likeCounter} commentCounter={this.state.commentCounter} incrementLike={this.incrementLike}/>
                 {/* <Comments/> */}
-                <CommentForm value={this.state.value} comments={this.state.comments} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+                <CommentForm 
+                value={this.state.value} 
+                comments={this.state.comments} 
+                handleChange={this.handleChange} 
+                handleSubmit={this.handleSubmit} />
         </div>
     );
     }
     
 }
+
+
+Article.propTypes={
+    handleChange: PropTypes.number.isRequired,
+};
 
 export default Article
