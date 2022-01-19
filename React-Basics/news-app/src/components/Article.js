@@ -44,13 +44,17 @@ class Article extends React.Component{
     }
 
     render(){
+
+        const{id, img, removeArticle, title} = this.props;
+
+        console.log(this.props.title + 'is rendered')
         return(
         <div className = "container-article">
-            <img className="article-img"src= {this.props.img} alt="" />
-                <h2 className="article-title">{this.props.title}</h2>
+            <img className="article-img"src= {img} alt="" />
+                <h2 className="article-title">{title}</h2>
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
                 <button className="article-btn">Read More</button>
-                <button className="remove-btn" onClick={()=>this.props.removeArticle(this.props.id)}>Remove</button>
+                <button className="remove-btn" onClick={()=>removeArticle(id)}>Remove</button>
                 <Reaction likeCounter={this.state.likeCounter} commentCounter={this.state.commentCounter} incrementLike={this.incrementLike}/>
                 {/* <Comments/> */}
                 <CommentForm value={this.state.value} comments={this.state.comments} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
