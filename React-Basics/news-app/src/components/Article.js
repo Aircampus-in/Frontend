@@ -1,53 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Reaction from './Reaction';
 import CommentForm from './CommentForm';
 import PropTypes from 'prop-types';
 
 
-class Article extends React.Component{
+function Article(props){
+    const{id, img, removeArticle, title} = props;
 
-    state={
-        likeCounter : 0,
-        commentCounter : 0,
-        value: '',
-        comments: []          
-    }
+    const[likeCounter, setLikeCounter] = useState(0);
+    const[commentCounter, setcommentCounter] = useState(0);
+    const[value, setValue] = useState('');
+    const[comments, setComments] = useState([]);
 
-    incrementLike=(e)=>{
+    const incrementLike=(e)=>{
     e.preventDefault();
-    this.setState(prevState =>({
-        likeCounter : prevState.likeCounter + 1
-    }));
+    setLikeCounter(likeCounter + 1);
     }
     
-    handleChange=(e)=>{
-        this.setState({
-            value: e.target.value
-        })
+    const handleChange=(e)=>{
+        setValue(e.target.value)
     }
 
-    handleSubmit=(e)=>{
+    const handleSubmit=(e)=>{
         e.preventDefault();
-        this.setState(prevState=>{
-            return{
-                comments:[
-                ...prevState.comments,
+        setComments([
+                ...comments,
                     {
-                    comment: prevState.value,
-                    id: prevState.comments.length
+                    comment: value,
+                    id: comments.length
                     }
-                ],
-                commentCounter: prevState.comments.length + 1,
-                value: ''
-            }
-            
-        })
+                ]);
+        setcommentCounter(comments.length + 1);
+        setValue('');
 
     }
 
-    render(){
-
-        const{id, img, removeArticle, title} = this.props;
+        
 
         return(
         <div className = "container-article">
@@ -56,22 +44,24 @@ class Article extends React.Component{
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
                 <button className="article-btn">Read More</button>
                 <button className="remove-btn" onClick={()=>removeArticle(id)}>Remove</button>
-                <Reaction likeCounter={this.state.likeCounter} commentCounter={this.state.commentCounter} incrementLike={this.incrementLike}/>
-                {/* <Comments/> */}
+                <Reaction 
+                likeCounter={likeCounter} 
+                commentCounter={commentCounter} 
+                incrementLike={incrementLike}/>
+
                 <CommentForm 
-                value={this.state.value} 
-                comments={this.state.comments} 
-                handleChange={this.handleChange} 
-                handleSubmit={this.handleSubmit} />
+                value={value} 
+                comments={comments} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} />
         </div>
     );
-    }
     
 }
 
 
 Article.propTypes={
-    handleChange: PropTypes.number.isRequired,
-};
+    handleSubmit: PropTypes.func.isRequired,
+}
 
 export default Article

@@ -2,14 +2,14 @@ import './App.css';
 import Header from './components/Header';
 import Article from './components/Article';
 import Footer from './components/Footer';
-import React from 'react';
+import React, {useState} from 'react';
 
 
 
-class App extends React.Component{
+function App(){
 
-   state={
-        articles : [
+
+   const[articles, setArticles] = useState([
         { title: "The Mountains are Calling",
         img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
         id:1 },
@@ -24,35 +24,27 @@ class App extends React.Component{
         
         {title: "Food is Happiness", img:"https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
         id:4}
-        ],
+        ]) 
+
+
+    const handleRemoveArticle=(id)=>{
+        setArticles(articles.filter(article => article.id !== id));
     }
-
-
-
-
-    handleRemoveArticle=(id)=>{
-        this.setState(prevState=>({
-            articles: prevState.articles.filter(article => article.id !== id)
-        }));
-    }
-
-
-    render(){
         return(
         <div>
             <Header />
-            {this.state.articles.map((article)=><Article 
+            {articles.map((article)=><Article 
             title={article.title} 
             img={article.img} 
             id={article.id}
             key={article.id.toString()}
-            removeArticle={this.handleRemoveArticle}/>)}
+            removeArticle={handleRemoveArticle}/>)}
             <Footer/>
         </div>
     );
-    }
     
 }
-  
+
+
 
 export default App;
