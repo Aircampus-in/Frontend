@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 class CommentForm extends React.Component{
 
@@ -19,5 +20,10 @@ class CommentForm extends React.Component{
         )
     }
 }
+
+CommentForm.propTypes={
+    handleSubmit: PropTypes.func.isRequired,
+}
+
 
 export default CommentForm

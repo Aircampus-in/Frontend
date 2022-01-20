@@ -5,10 +5,7 @@ import Footer from './components/Footer';
 import React, {useState} from 'react';
 
 
-
 function App(){
-
-
    const[articles, setArticles] = useState([
         { title: "The Mountains are Calling",
         img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
@@ -30,9 +27,10 @@ function App(){
     const handleRemoveArticle=(id)=>{
         setArticles(articles.filter(article => article.id !== id));
     }
-        return(
+
+    return(
         <div>
-            <Header />
+            <Header link='{headlines}'/>
             {articles.map((article)=><Article 
             title={article.title} 
             img={article.img} 
@@ -44,7 +42,6 @@ function App(){
     );
     
 }
-
 
 
 export default App;

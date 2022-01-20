@@ -61,7 +61,10 @@ function Article(props){
 
 
 Article.propTypes={
-    handleSubmit: PropTypes.func.isRequired,
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    removeArticle: PropTypes.func.isRequired
 }
 
 export default Article
