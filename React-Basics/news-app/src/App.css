@@ -139,7 +139,7 @@ li {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
   text-align: center;
 }
 
@@ -297,16 +297,21 @@ footer {
   margin-top: 30px;
 }
 
-.copyright {
-  color: white;
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 .social {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 .social-item a {
   font-size: 18px;
   color: white;
   margin-right: 50px;
+}
+
+.timer {
+  color: white;
 }
