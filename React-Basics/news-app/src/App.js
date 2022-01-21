@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import React, {useState} from 'react';
 
 
+console.log('app rendered');
+
 function App(){
    const[articles, setArticles] = useState([
         { title: "The Mountains are Calling",
@@ -23,6 +25,7 @@ function App(){
         id:4}
         ]) 
 
+   
 
     const handleRemoveArticle=(id)=>{
         setArticles(articles.filter(article => article.id !== id));
