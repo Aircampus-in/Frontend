@@ -10,11 +10,13 @@ function Clock (){
     }
 
     useEffect(()=> {
-        const timer = setInterval(refreshClock, 1000);
+        setInterval(refreshClock, 1000);
+        // console.log('useEffect')
         return function cleanup(){
-            clearInterval(timer);
+            clearInterval();
+            // console.log('cleanup')
         };
-    }, []);
+    });
 
         return(
             <div className="timer">{date.toLocaleTimeString()}</div>
