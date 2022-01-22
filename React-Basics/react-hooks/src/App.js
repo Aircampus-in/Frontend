@@ -1,21 +1,34 @@
 import './App.css';
-import React from 'react';
+import {useState, useEffect} from 'react';
 
-const App=()=>{
+const Counter=()=> {
 
-  const[count, setCount] = React.useState(0)
+  const[count, setCount]= useState(0)
+  const[isVisible, setIsVisible] = useState(true)
 
+  useEffect(()=>{
+    console.log('Use Effect')
+    if(count>0){
+    document.title=`New Notification (${count})`}
+  },[count])
 
-  const incrementer=()=>{
-    setCount(count+1)
-  }
-    return (
-      <div className="container">
-        <h1>{count}</h1>
-        <button onClick={incrementer}>Click Me</button>
-      </div>
-    );
   
-}
+console.log('counter')
 
-export default App;
+  return (
+    <div className='container'>
+      <p>You clicked {count} times</p>
+      {isVisible? <p>Helloo!!</p> : ''}
+      <button onClick={() => setCount(count+1)}>
+        Click me
+      </button>
+      <button onClick={() => setIsVisible(!isVisible)}>Toggle</button>
+
+    </div>
+  );
+
+
+
+}
+ 
+export default Counter;
