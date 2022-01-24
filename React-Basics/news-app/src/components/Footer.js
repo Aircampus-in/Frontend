@@ -1,13 +1,14 @@
+import { DarkModeContext } from '../context/DarkModeContext';
 import Clock from './Clock';
-// import {useState} from 'react';
+import {useContext} from 'react';
 
 function Footer(){
 
-    // const[toggle, setToggle] = useState(true);
+    const {darkMode} = useContext(DarkModeContext);
     return(
-        <footer>
-            <div className="container footer-flex">
-                <ul className="social">
+        <footer className={darkMode ? "footer dark": "footer light"}>
+            <div className={darkMode ? "container footer-flex"}>
+                <ul className={darkMode ? "social social-dark" : "social social-light"}>
                     <li className="social-item"><a href="/">Twitter</a></li>
                     <li className="social-item"><a href="/">LinkedIn</a></li>
                     <li className="social-item"><a href="/">Instagram</a></li>
