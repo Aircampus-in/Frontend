@@ -9,8 +9,8 @@ const Counter=()=> {
   useEffect(()=>{
     console.log('Use Effect')
     if(count>0){
-    document.title=`New Notification (${count})`}
-  },[])
+    document.title=`New Notification (${count})`}  
+  })
 
   
 console.log('counter')

@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { DarkModeContext } from '../context/DarkModeContext';
 import Reaction from './Reaction';
 import CommentForm from './CommentForm';
 import PropTypes from 'prop-types';
 
 
 function Article(props){
+
+
+    const {darkMode} = useContext(DarkModeContext)
+
+    console.log(darkMode);
+
     const{id, img, removeArticle, title} = props;
 
     const[likeCounter, setLikeCounter] = useState(0);
