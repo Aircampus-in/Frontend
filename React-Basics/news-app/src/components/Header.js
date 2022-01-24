@@ -1,6 +1,6 @@
 import { DarkModeContext } from "../context/DarkModeContext";
 import {useContext} from 'react';
-function Header(props){
+function Header(){
 
     const{darkMode, toggleDarkMode} = useContext(DarkModeContext)
     return(
@@ -12,7 +12,7 @@ function Header(props){
                     <li className="nav-item"><a href="/">Heading</a></li>
                     <li className="nav-item"><a href="/">About</a></li>
                     <li className="nav-item"><a href="/">Contact</a></li>
-                    <button className={darkMode ? "toggle-theme dark" : "toggle-theme light"} onClick={toggleDarkMode}>{darkMode ? <i className="fas fa-moon fa-2x"></i> : <i class="fas fa-sun fa-2x"></i>}</button>
+                    <button className={darkMode ? "toggle-theme dark" : "toggle-theme light"} onClick={toggleDarkMode}>{darkMode ? <i className="fas fa-moon fa-2x"></i> : <i className="fas fa-sun fa-2x"></i>}</button>
                 </ul>
             </nav>
         </div>
