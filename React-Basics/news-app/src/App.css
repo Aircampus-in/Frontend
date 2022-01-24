@@ -145,9 +145,16 @@ li {
 
 /* Header */
 header {
-  background-color: rgb(8, 7, 7);
   padding: 20px 0;
   margin-bottom: 30px;
+}
+
+.header-light {
+  background-color: white;
+}
+
+.header-dark {
+  background-color: rgb(8, 7, 7);
 }
 
 .navbar {
@@ -161,22 +168,43 @@ header {
   align-items: center;
 }
 
-h1 a {
+.brand {
   font-size: 45px;
+}
+
+.brand-dark {
   color: white;
 }
 
-.nav-item a {
+.brand-light {
+  color: rgb(8, 7, 7);
+}
+
+.nav-links-light li a {
+  font-size: 18px;
+  color: rgb(8, 7, 7);
+  margin-right: 20px;
+}
+
+.nav-links-dark li a {
   font-size: 18px;
   color: white;
   margin-right: 20px;
 }
 
 .toggle-theme {
-  color: white;
-  background-color: rgb(8, 7, 7);
   border: none;
   cursor: pointer;
+}
+
+.light {
+  color: rgb(8, 7, 7);
+  background-color: white;
+}
+
+.dark {
+  color: white;
+  background-color: rgb(8, 7, 7);
 }
 
 /* Article */
