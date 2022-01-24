@@ -139,13 +139,12 @@ li {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 30px 30px;
   text-align: center;
 }
 
 /* Header */
 header {
-  padding: 20px 0;
   margin-bottom: 30px;
 }
 
@@ -155,6 +154,9 @@ header {
 
 .header-dark {
   background-color: rgb(8, 7, 7);
+}
+.container-light {
+  border-bottom: 2px solid rgb(8, 7, 7);
 }
 
 .navbar {
@@ -169,7 +171,8 @@ header {
 }
 
 .brand {
-  font-size: 45px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .brand-dark {
@@ -184,12 +187,14 @@ header {
   font-size: 18px;
   color: rgb(8, 7, 7);
   margin-right: 20px;
+  font-weight: bold;
 }
 
 .nav-links-dark li a {
   font-size: 18px;
   color: white;
   margin-right: 20px;
+  font-weight: bold;
 }
 
 .toggle-theme {
@@ -200,11 +205,13 @@ header {
 .light {
   color: rgb(8, 7, 7);
   background-color: white;
+  font-weight: bold;
 }
 
 .dark {
   color: white;
   background-color: rgb(8, 7, 7);
+  font-weight: bold;
 }
 
 /* Article */
@@ -214,7 +221,7 @@ header {
   max-width: 800px;
   margin: 0 auto;
   margin-bottom: 40px;
-  border: 1px solid #dbcfcf80;
+  border: 1px solid #72727280;
   padding: 20px;
   border-radius: 8px;
 }
@@ -330,7 +337,6 @@ header {
 /* Footer */
 footer {
   background-color: rgb(8, 7, 7);
-  padding: 20px 0;
   margin-top: 30px;
 }
 
@@ -339,16 +345,23 @@ footer {
   justify-content: space-between;
 }
 
+.footer-light {
+  border-top: 2px solid rgb(8, 7, 7);
+}
+
 .social {
   display: flex;
   justify-content: left;
 }
-.social-item a {
+.social li a {
   font-size: 18px;
-  color: white;
   margin-right: 50px;
+  font-weight: bold;
 }
 
-.timer {
+.social-dark li a {
   color: white;
+}
+.social-light li a {
+  color: rgb(8, 7, 7);
 }

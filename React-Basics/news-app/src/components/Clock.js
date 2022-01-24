@@ -1,7 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import { DarkModeContext } from '../context/DarkModeContext';
+import React, {useState, useEffect, useContext} from 'react';
 
 
 function Clock (){
+
+    const{darkMode} = useContext(DarkModeContext)
 
     const [date, setDate] = useState(new Date());
 
@@ -19,7 +22,7 @@ function Clock (){
     });
 
         return(
-            <div className="timer">{date.toLocaleTimeString()}</div>
+            <div className={darkMode ? "dark" : "light"}>{date.toLocaleTimeString()}</div>
         )
     }
 

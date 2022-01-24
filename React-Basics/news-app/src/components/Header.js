@@ -4,8 +4,8 @@ function Header(){
 
     const{darkMode, toggleDarkMode} = useContext(DarkModeContext)
     return(
-        <header className={darkMode ? "header, header-dark" : "header header-light"}>
-        <div className="container">
+        <header className={darkMode ? "header header-dark" : "header header-light"}>
+        <div className={darkMode ? "container container-light" : "container container-light"}>
             <nav className="navbar">
                 <h1><a className={darkMode ? "brand brand-dark": "brand brand-light"} href="/">News App</a></h1>
                 <ul className={darkMode ? "nav-links nav-links-dark" : "nav-links nav-links-light"}>

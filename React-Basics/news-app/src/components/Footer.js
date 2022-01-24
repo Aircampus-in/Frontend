@@ -7,7 +7,7 @@ function Footer(){
     const {darkMode} = useContext(DarkModeContext);
     return(
         <footer className={darkMode ? "footer dark": "footer light"}>
-            <div className={darkMode ? "container footer-flex"}>
+            <div className={darkMode ? "container footer-flex" : "container footer-flex footer-light"}>
                 <ul className={darkMode ? "social social-dark" : "social social-light"}>
                     <li className="social-item"><a href="/">Twitter</a></li>
                     <li className="social-item"><a href="/">LinkedIn</a></li>
