@@ -35,7 +35,7 @@ function App(){
 
     return(
         <DarkModeProvider>
-            <Header link='{headlines}'/>
+            <Header/>
             {articles.map((article)=><Article 
             title={article.title} 
             img={article.img} 

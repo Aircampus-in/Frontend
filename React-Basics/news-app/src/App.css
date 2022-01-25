@@ -218,13 +218,22 @@ header {
 
 .container-article {
   /* background-color: black; */
+  border: 1px solid #cac9c980;
   max-width: 800px;
   margin: 0 auto;
   margin-bottom: 40px;
-  border: 1px solid #72727280;
   padding: 20px;
   border-radius: 8px;
 }
+
+.container-article-dark {
+  border: 3px solid rgb(8, 7, 7);
+}
+
+.container-article-light {
+  border: 3px solid #d8d7d780;
+}
+
 .article-img {
   width: 800px;
   margin-bottom: 30px;

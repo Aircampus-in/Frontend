@@ -10,8 +10,6 @@ function Article(props){
 
     const {darkMode} = useContext(DarkModeContext)
 
-    console.log(darkMode);
-
     const{id, img, removeArticle, title} = props;
 
     const[likeCounter, setLikeCounter] = useState(0);
@@ -45,7 +43,7 @@ function Article(props){
         
 
         return(
-        <div className = "container-article">
+        <div className = {darkMode ? "container-article container-article-dark" : "container-article container-article-light"}>
             <img className="article-img"src= {img} alt="" />
                 <h2 className="article-title">{title}</h2>
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
