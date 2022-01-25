@@ -3,6 +3,9 @@ import {useContext} from 'react';
 function Header(){
 
     const{darkMode, toggleDarkMode} = useContext(DarkModeContext)
+
+    console.log(darkMode)
+    console.log(toggleDarkMode)
     return(
         <header className={
             darkMode ? 
