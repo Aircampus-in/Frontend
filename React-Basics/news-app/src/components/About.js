@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 function About() {
   return (
-      <div>
+      <div>   
           <Header/>
           About
           <Footer/>
