@@ -1,8 +1,6 @@
 import './App.css';
 import { DarkModeProvider } from './context/DarkModeContext';
-import Header from './components/Header';
-import Article from './components/Article';
-import Footer from './components/Footer';
+import Home from './components/Home';
 import React, {useState} from 'react';
 
 
@@ -35,14 +33,7 @@ function App(){
 
     return(
         <DarkModeProvider>
-            <Header/>
-            {articles.map((article)=><Article 
-            title={article.title} 
-            img={article.img} 
-            id={article.id}
-            key={article.id.toString()}
-            removeArticle={handleRemoveArticle}/>)}
-            <Footer/>
+            <Home articles={articles} handleRemoveArticle={handleRemoveArticle}/>
         </DarkModeProvider>
     );
     
