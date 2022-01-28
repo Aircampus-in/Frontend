@@ -25,14 +25,14 @@ function Header(){
                     "nav-links nav-links-dark" : 
                     "nav-links nav-links-light"}>
                     <li className="nav-item"><a href="/">Heading</a></li>
-                    <li className="nav-item"><a href="/">About</a></li>
+                    <li className="nav-item"><a href="/about">About</a></li>
                     <li className="nav-item"><a href="/">Contact</a></li>
                     <button className={
                         darkMode ? 
                         "toggle-theme dark" : 
                         "toggle-theme light"} onClick={toggleDarkMode}>{darkMode ? 
-                        <i className="fas fa-moon fa-2x"></i> : 
-                        <i className="fas fa-sun fa-2x"></i>}</button>
+                        <i className="fas fa-sun fa-2x"></i>:
+                        <i className="fas fa-moon fa-2x"></i>}</button>
                 </ul>
             </nav>
         </div>

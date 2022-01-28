@@ -1,7 +1,9 @@
 import './App.css';
 import { DarkModeProvider } from './context/DarkModeContext';
 import Home from './components/Home';
+import About from './components/About';
 import React, {useState} from 'react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 
 
@@ -33,7 +35,14 @@ function App(){
 
     return(
         <DarkModeProvider>
-            <Home articles={articles} handleRemoveArticle={handleRemoveArticle}/>
+            <Router>
+                <Routes>
+                    <Route path='/' element ={<Home articles={articles} handleRemoveArticle={handleRemoveArticle}/>}>
+                    </Route>
+                    <Route path='/about' element ={<About/>}>
+                    </Route>
+                </Routes>
+            </Router>
         </DarkModeProvider>
     );
     
