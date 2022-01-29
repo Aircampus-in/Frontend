@@ -4,6 +4,7 @@ import Home from './components/Home';
 import About from './components/About';
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import ErrorPage from './components/ErrorPage';
 
 
 
@@ -40,6 +41,8 @@ function App(){
                     <Route path='/' element ={<Home articles={articles} handleRemoveArticle={handleRemoveArticle}/>}>
                     </Route>
                     <Route path='/about' element ={<About/>}>
+                    </Route>
+                    <Route path='*' element ={<ErrorPage/>}>
                     </Route>
                 </Routes>
             </Router>
