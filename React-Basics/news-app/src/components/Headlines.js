@@ -6,7 +6,7 @@ function Headlines() {
   return (
       <div>   
           <Header/>
-          <p>About</p>
+          <p>Headlines</p>
           <Footer/>
       </div>
       );

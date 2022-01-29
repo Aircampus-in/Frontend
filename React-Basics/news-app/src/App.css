@@ -187,14 +187,12 @@ header {
   font-size: 18px;
   color: rgb(8, 7, 7);
   margin-right: 20px;
-  font-weight: bold;
 }
 
 .nav-links-dark li a {
   font-size: 18px;
   color: white;
   margin-right: 20px;
-  font-weight: bold;
 }
 
 .toggle-theme {
@@ -205,12 +203,15 @@ header {
 .light {
   color: rgb(8, 7, 7);
   background-color: white;
-  font-weight: bold;
 }
 
 .dark {
   color: white;
   background-color: rgb(8, 7, 7);
+}
+
+.active {
+  font-size: 20px !important;
   font-weight: bold;
 }
 

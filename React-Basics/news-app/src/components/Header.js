@@ -1,11 +1,11 @@
 import { DarkModeContext } from "../context/DarkModeContext";
 import {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 function Header(){
 
     const{darkMode, toggleDarkMode} = useContext(DarkModeContext)
 
-    console.log(darkMode)
+    console.log(NavLink)
     console.log(toggleDarkMode)
     return(
         <header className={
@@ -21,14 +21,18 @@ function Header(){
                     darkMode ? 
                     "brand brand-dark": 
                     "brand brand-light"} to="/">News App</Link></h1>
+
                 <ul className={
                     darkMode ? 
                     "nav-links nav-links-dark" : 
                     "nav-links nav-links-light"}>
-                    <li className="nav-item"><Link to="/">Home</Link></li>
-                    <li className="nav-item"><Link to="/headlines">Headlines</Link></li>
-                    <li className="nav-item"><Link to="/contact">Contact Us</Link></li>
-                    <li className="nav-item"><Link to="/signin">Sign In</Link></li>
+                    <li className="nav-item"><NavLink className= {(navData)=>navData.isActive? 'active': ''} to="/">Home</NavLink></li>
+
+                    <li className="nav-item"><NavLink className= {(navData)=>navData.isActive? 'active': ''} to="/headlines">Headlines</NavLink></li>
+
+                    <li className="nav-item"><NavLink className= {(navData)=>navData.isActive? 'active': ''} to="/contact">Contact Us</NavLink></li>
+
+                    <li className="nav-item"><NavLink className= {(navData)=>navData.isActive? 'active': ''} to="/signin">Sign In</NavLink></li>
                     <button className={
                         darkMode ?
                         "toggle-theme dark" : 
