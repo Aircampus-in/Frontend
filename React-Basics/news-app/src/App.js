@@ -1,10 +1,12 @@
 import './App.css';
 import { DarkModeProvider } from './context/DarkModeContext';
 import Home from './components/Home';
-import About from './components/About';
+import Headlines from './components/Headlines';
 import React, {useState} from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
+import SignIn from './components/SignIn';
+import Contact from './components/Contact';
 
 
 
@@ -36,16 +38,18 @@ function App(){
 
     return(
         <DarkModeProvider>
-            <Router>
                 <Routes>
                     <Route path='/' element ={<Home articles={articles} handleRemoveArticle={handleRemoveArticle}/>}>
                     </Route>
-                    <Route path='/about' element ={<About/>}>
+                    <Route path='/headlines' element ={<Headlines/>}>
+                    </Route>
+                    <Route path='/contact' element ={<Contact/>}>
+                    </Route>
+                    <Route path='/signin' element ={<SignIn/>}>
                     </Route>
                     <Route path='*' element ={<ErrorPage/>}>
                     </Route>
                 </Routes>
-            </Router>
         </DarkModeProvider>
     );
     

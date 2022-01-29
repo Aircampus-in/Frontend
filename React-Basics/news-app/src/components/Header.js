@@ -1,5 +1,6 @@
 import { DarkModeContext } from "../context/DarkModeContext";
 import {useContext} from 'react';
+import {Link} from 'react-router-dom';
 function Header(){
 
     const{darkMode, toggleDarkMode} = useContext(DarkModeContext)
@@ -16,17 +17,18 @@ function Header(){
             "container container-light" : 
             "container container-light"}>
             <nav className="navbar">
-                <h1><a className={
+                <h1><Link className={
                     darkMode ? 
                     "brand brand-dark": 
-                    "brand brand-light"} href="/">News App</a></h1>
+                    "brand brand-light"} to="/">News App</Link></h1>
                 <ul className={
                     darkMode ? 
                     "nav-links nav-links-dark" : 
                     "nav-links nav-links-light"}>
-                    <li className="nav-item"><a href="/">Headings</a></li>
-                    <li className="nav-item"><a href="/about">About</a></li>
-                    <li className="nav-item"><a href="/">Contact</a></li>
+                    <li className="nav-item"><Link to="/">Home</Link></li>
+                    <li className="nav-item"><Link to="/headlines">Headlines</Link></li>
+                    <li className="nav-item"><Link to="/contact">Contact Us</Link></li>
+                    <li className="nav-item"><Link to="/signin">Sign In</Link></li>
                     <button className={
                         darkMode ?
                         "toggle-theme dark" : 

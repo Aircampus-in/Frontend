@@ -2,14 +2,14 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
-function About() {
+function Headlines() {
   return (
       <div>   
           <Header/>
-          About
+          <p>About</p>
           <Footer/>
       </div>
       );
 }
 
-export default About;
+export default Headlines;
