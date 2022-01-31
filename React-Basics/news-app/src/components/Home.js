@@ -13,11 +13,11 @@ function Home({articles, handleRemoveArticle, data, error, loading}) {
         {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
         )}
-        {data && data.map(({title, urlToImage, publishedAt})=>(<Article 
+        {data && data.map(({title, urlToImage, publishedAt, url})=>(<Article 
         title={title} 
         img={urlToImage} 
         id={publishedAt}
-        key={publishedAt}
+        key={url}
         removeArticle={handleRemoveArticle}/>))}
         <Footer/>
     </div>

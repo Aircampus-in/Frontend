@@ -8,7 +8,7 @@ import ErrorPage from './components/ErrorPage';
 import SignIn from './components/SignIn';
 import Contact from './components/Contact';
 
-
+// https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f
 
 function App(){
 
@@ -35,24 +35,28 @@ function App(){
         ]) 
 
      useEffect(()=>{
-        fetch(`https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`)
-        .then((response) =>{
-            if(!response.ok){
-                throw new Error(
-                     `This is an HTTP error: The status is ${response.status}`
+        async function getData(){
+            try{
+                const response = await fetch(`https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`
                 );
+                if(!response.ok){
+                    throw new Error(
+                        `This is an HTTP error: The status is ${response.status}`
+                    );
+                }
+                let actualData = await response.json();
+                setData(actualData.articles);
+                setError(null);
             }
-            return response.json();
-        })
-        .then((actualData)=>{
-            setData(actualData.articles);
-            setError(null);
-        })
-        .catch((err)=>{
-            setData(null);
-            setError(err);
-        })
-        .finally(()=>setLoading(false));
+            catch(err){
+                setError(err.message);
+                setData(null);
+            }
+            finally{
+                setLoading(false);
+            }
+        }
+        getData()   
      }, [])
 
 
