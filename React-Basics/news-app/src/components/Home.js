@@ -3,16 +3,22 @@ import Header from './Header';
 import Article from './Article';
 import Footer from './Footer';
 
-function Home({articles, handleRemoveArticle}) {
+function Home({articles, handleRemoveArticle, data, error, loading}) {
+
+  console.log(data);
   return (
     <div>
         <Header/>
-        {articles.map((article)=><Article 
-        title={article.title} 
-        img={article.img} 
-        id={article.id}
-        key={article.id.toString()}
-        removeArticle={handleRemoveArticle}/>)}
+        {loading && <div>A moment please...</div>}
+        {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+        )}
+        {data && data.map(({title, urlToImage, publishedAt})=>(<Article 
+        title={title} 
+        img={urlToImage} 
+        id={publishedAt}
+        key={publishedAt}
+        removeArticle={handleRemoveArticle}/>))}
         <Footer/>
     </div>
   );

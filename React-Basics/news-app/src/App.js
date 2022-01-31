@@ -35,17 +35,24 @@ function App(){
         ]) 
 
      useEffect(()=>{
-        fetch(`https://newsapi.org/v2/everything`)
+        fetch(`https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`)
         .then((response) =>{
             if(!response.ok){
                 throw new Error(
                      `This is an HTTP error: The status is ${response.status}`
                 );
             }
-            return console.log(response.status);
+            return response.json();
         })
-        // .then((actualData)=> console.log(actualData))
-        .catch((err)=>console.log(err));
+        .then((actualData)=>{
+            setData(actualData.articles);
+            setError(null);
+        })
+        .catch((err)=>{
+            setData(null);
+            setError(err);
+        })
+        .finally(()=>setLoading(false));
      }, [])
 
 
@@ -56,7 +63,7 @@ function App(){
     return(
         <DarkModeProvider>
                 <Routes>
-                    <Route path='/' element ={<Home articles={articles} handleRemoveArticle={handleRemoveArticle}/>}>
+                    <Route path='/' element ={<Home loading={loading} data={data} error={error} articles={articles} handleRemoveArticle={handleRemoveArticle}/>}>
                     </Route>
                     <Route path='/headlines' element ={<Headlines/>}>
                     </Route>
