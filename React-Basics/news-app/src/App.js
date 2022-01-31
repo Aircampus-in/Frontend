@@ -35,10 +35,17 @@ function App(){
         ]) 
 
      useEffect(()=>{
-        fetch(`https://newsapi.org/v2/everything?q=india
-        &apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`)
-        .then((response) => response.json())
-        .then((actualData)=> console.log(actualData));
+        fetch(`https://newsapi.org/v2/everything`)
+        .then((response) =>{
+            if(!response.ok){
+                throw new Error(
+                     `This is an HTTP error: The status is ${response.status}`
+                );
+            }
+            return console.log(response.status);
+        })
+        // .then((actualData)=> console.log(actualData))
+        .catch((err)=>console.log(err));
      }, [])
 
 
