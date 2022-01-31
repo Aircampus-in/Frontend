@@ -32,7 +32,6 @@ function Article(props){
                 ...comments,
                     {
                     comment: value,
-                    id: comments.length
                     }
                 ]);
         setcommentCounter(comments.length + 1);
@@ -66,7 +65,7 @@ function Article(props){
 
 
 Article.propTypes={
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     removeArticle: PropTypes.func.isRequired
