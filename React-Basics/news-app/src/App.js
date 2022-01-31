@@ -2,7 +2,7 @@ import './App.css';
 import { DarkModeProvider } from './context/DarkModeContext';
 import Home from './components/Home';
 import Headlines from './components/Headlines';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import SignIn from './components/SignIn';
@@ -11,6 +11,10 @@ import Contact from './components/Contact';
 
 
 function App(){
+
+    const[data, setData] = useState(null)
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
 
     const[articles, setArticles] = useState([
@@ -30,7 +34,13 @@ function App(){
         id:4}
         ]) 
 
-   
+     useEffect(()=>{
+        fetch(`https://newsapi.org/v2/everything?q=india
+        &apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`)
+        .then((response) => response.json())
+        .then((actualData)=> console.log(actualData));
+     }, [])
+
 
     const handleRemoveArticle=(id)=>{
         setArticles(articles.filter(article => article.id !== id));
