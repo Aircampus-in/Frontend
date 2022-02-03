@@ -5,7 +5,6 @@ import Footer from './Footer';
 
 function Home({ handleRemoveArticle, data, error, loading}) {
 
-  console.log(data)
 
   return (
     <div>
@@ -19,6 +18,7 @@ function Home({ handleRemoveArticle, data, error, loading}) {
         img={urlToImage} 
         id={publishedAt}
         key={url}
+        url={url}
         removeArticle={handleRemoveArticle}/>))}
         <Footer/>
     </div>

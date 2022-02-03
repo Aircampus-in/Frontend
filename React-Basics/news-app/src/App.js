@@ -13,8 +13,6 @@ import Contact from './components/Contact';
 function App(){
 
     let url = `https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`
-
-    console.log('app')
  
     const[data, setData] = useState(null)
     const [loading, setLoading] = useState(true);
@@ -52,6 +50,7 @@ function App(){
                 
         .then((actualData)=>{
             setData(actualData.articles);
+            console.log(actualData)
             setError(null);
         })
         .catch((err)=>{
