@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 function Home({ handleRemoveArticle, data, error, loading}) {
 
-  console.log("Home")
+  console.log(data)
 
   return (
     <div>

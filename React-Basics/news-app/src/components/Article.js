@@ -3,6 +3,7 @@ import { DarkModeContext } from '../context/DarkModeContext';
 import Reaction from './Reaction';
 import CommentForm from './CommentForm';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 
 function Article(props){
@@ -25,13 +26,15 @@ function Article(props){
     const handleChange=(e)=>{
         setValue(e.target.value)
     }
-
     const handleSubmit=(e)=>{
+
         e.preventDefault();
+        console.log(comments)
         setComments([
                 ...comments,
                     {
                     comment: value,
+                    id: uuidv4()
                     }
                 ]);
         setcommentCounter(comments.length + 1);
