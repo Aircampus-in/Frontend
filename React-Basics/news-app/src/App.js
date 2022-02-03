@@ -8,10 +8,14 @@ import ErrorPage from './components/ErrorPage';
 import SignIn from './components/SignIn';
 import Contact from './components/Contact';
 
-// https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f
+
 
 function App(){
 
+    let url = `https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`
+
+    console.log('app')
+ 
     const[data, setData] = useState(null)
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -35,34 +39,35 @@ function App(){
     //     ]) 
 
      useEffect(()=>{
-        async function getData(){
-            try{
-                const response = await fetch(`https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`
-                );
-                if(!response.ok){
+        console.log('Inside UseEffect')
+        fetch(url)
+        .then((response)=>{
+            if(!response.ok){
                     throw new Error(
                         `This is an HTTP error: The status is ${response.status}`
                     );
                 }
-                let actualData = await response.json();
-                setData(actualData.articles);
-                setError(null);
-            }
-            catch(err){
-                setError(err.message);
-                setData(null);
-            }
-            finally{
+                return response.json();
+        })
+                
+        .then((actualData)=>{
+            setData(actualData.articles);
+            setError(null);
+        })
+        .catch((err)=>{
+            setData(null);
+            setError(err.message);
+        })            
+        
+        .finally(()=>{
                 setLoading(false);
-            }
-        }
-        getData()   
-     }, [])
+        });
+
+     }, [url])
 
 
     const handleRemoveArticle=(id)=>{
         setData(data.filter(article => article.publishedAt !== id));
-        console.log(data)
     }
 
     return(

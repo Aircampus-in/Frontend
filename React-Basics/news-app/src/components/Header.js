@@ -5,8 +5,8 @@ function Header(){
 
     const{darkMode, toggleDarkMode} = useContext(DarkModeContext)
 
-    console.log(NavLink)
-    console.log(toggleDarkMode)
+    console.log('header')
+    // console.log(toggleDarkMode)
     return(
         <header className={
             darkMode ? 

@@ -3,13 +3,14 @@ import Header from './Header';
 import Article from './Article';
 import Footer from './Footer';
 
-function Home({articles, handleRemoveArticle, data, error, loading}) {
+function Home({ handleRemoveArticle, data, error, loading}) {
 
-  console.log(data);
+  console.log("Home")
+
   return (
     <div>
         <Header/>
-        {loading && <div>A moment please...</div>}
+        {loading && <div className="loading">News Loading...</div>}
         {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
         )}
