@@ -7,6 +7,7 @@ import {Routes, Route} from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import SignIn from './components/SignIn';
 import Contact from './components/Contact';
+import axios from "axios";
 
 
 
@@ -40,16 +41,10 @@ function App(){
         console.log('Inside UseEffect')
         const getData = async()=>{
             try{
-                const response = await fetch (url);
-
-            if(!response.ok){
-                    throw new Error(
-                        `This is an HTTP error: The status is ${response.status}`
-                    );
-                }
-            let actualData = await response.json();
-            setData(actualData.articles);
-            setError(null);
+                const response = await axios.get(url)
+                console.log(response.data)
+                setData(response.data.articles);
+                setError(null);
             }catch(err){
                 setError(err.message);
                 setData(null);
