@@ -38,29 +38,26 @@ function App(){
 
      useEffect(()=>{
         console.log('Inside UseEffect')
-        fetch(url)
-        .then((response)=>{
+        async function getData(){
+            try{
+                const response = fetch (url);
+
             if(!response.ok){
                     throw new Error(
                         `This is an HTTP error: The status is ${response.status}`
                     );
                 }
-                return response.json();
-        })
-                
-        .then((actualData)=>{
-            setData(actualData.articles);
-            console.log(actualData)
+            let actualData = await response.json();
+            setData(actualData);
             setError(null);
-        })
-        .catch((err)=>{
-            setData(null);
-            setError(err.message);
-        })            
-        
-        .finally(()=>{
+            }catch(err){
+                setError(err.message);
+                setData(null);
+            }finally{
                 setLoading(false);
-        });
+            }          
+        }
+        getData();      
 
      }, [url])
 
