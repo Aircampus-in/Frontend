@@ -38,9 +38,9 @@ function App(){
 
      useEffect(()=>{
         console.log('Inside UseEffect')
-        async function getData(){
+        const getData = async()=>{
             try{
-                const response = fetch (url);
+                const response = await fetch (url);
 
             if(!response.ok){
                     throw new Error(
@@ -48,7 +48,7 @@ function App(){
                     );
                 }
             let actualData = await response.json();
-            setData(actualData);
+            setData(actualData.articles);
             setError(null);
             }catch(err){
                 setError(err.message);

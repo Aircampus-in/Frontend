@@ -49,7 +49,7 @@ function Article(props){
             <img className="article-img"src= {img} alt="" />
                 <h2 className="article-title">{title}</h2>
                 <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
-                <button className="article-btn"><a href={url} target ="_blank">Read More</a></button>
+                <button className="article-btn"><a href={url} target ="_blank" rel="noreferrer">Read More</a></button>
                 <button className="remove-btn" onClick={()=>removeArticle(id)}>Remove</button>
                 <Reaction 
                 likeCounter={likeCounter} 
