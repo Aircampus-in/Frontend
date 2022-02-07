@@ -13,7 +13,8 @@ function Home({ handleRemoveArticle, data, error, loading}) {
         {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
         )}
-        {data && data.map(({title, urlToImage, publishedAt, url})=>(<Article 
+        {data && data.map(({title, urlToImage, publishedAt, url, content})=>(<Article 
+        desc = {content}
         title={title} 
         img={urlToImage} 
         id={publishedAt}

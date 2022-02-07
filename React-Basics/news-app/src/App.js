@@ -38,7 +38,6 @@ function App(){
     //     ]) 
 
      useEffect(()=>{
-        console.log('Inside UseEffect')
         const getData = async()=>{
             try{
                 const response = await axios.get(url)

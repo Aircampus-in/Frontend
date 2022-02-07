@@ -11,7 +11,7 @@ function Article(props){
 
     const {darkMode} = useContext(DarkModeContext)
 
-    const{id, img, removeArticle, title, url} = props;
+    const{id, img, removeArticle, title, url, desc} = props;
 
     const[likeCounter, setLikeCounter] = useState(0);
     const[commentCounter, setcommentCounter] = useState(0);
@@ -48,7 +48,7 @@ function Article(props){
         <div className = {darkMode ? "container-article container-article-dark" : "container-article container-article-light"}>
             <img className="article-img"src= {img} alt="" />
                 <h2 className="article-title">{title}</h2>
-                <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
+                <p className="article-para">{desc.slice(0, 350)}</p>
                 <button className="article-btn"><a href={url} target ="_blank" rel="noreferrer">Read More</a></button>
                 <button className="remove-btn" onClick={()=>removeArticle(id)}>Remove</button>
                 <Reaction 
