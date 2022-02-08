@@ -33,13 +33,21 @@ function Header(){
                     <li className="nav-item"><NavLink className= {(navData)=>navData.isActive? 'active': ''} to="/contact">Contact Us</NavLink></li>
 
                     <li className="nav-item"><NavLink className= {(navData)=>navData.isActive? 'active': ''} to="/signin">Sign In</NavLink></li>
-                    <button className={
+
+                </ul>
+                <div>
+                    <form className="form-container">
+                    <input type="text" placeholder="Search News"  className="comment-box"/>
+                    <button className="comment-btn"><i className="fas fa-search fa-2x"></i></button>
+                </form>
+                <button className={
                         darkMode ?
                         "toggle-theme dark" : 
                         "toggle-theme light"} onClick={toggleDarkMode}>{darkMode ? 
                         <i className="fas fa-sun fa-2x"></i>:
-                        <i className="fas fa-moon fa-2x"></i>}</button>
-                </ul>
+                        <i className="fas fa-moon fa-2x"></i>}
+                </button>
+                </div>
             </nav>
         </div>
     </header>
