@@ -13,9 +13,15 @@ import axios from "axios";
 
 function App(){
 
-    let url = `https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`
- 
-    const[data, setData] = useState(null)
+    const [url, setUrl ] = useState(`https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`);
+
+    const changeUrl = (value)=>{
+        setUrl(`https://newsapi.org/v2/everything?q=${value}}&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`)
+    }
+
+
+    // const[url, setUrl] = useState(`https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`);
+    const[data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -63,7 +69,7 @@ function App(){
     return(
         <DarkModeProvider>
                 <Routes>
-                    <Route path='/' element ={<Home loading={loading} data={data} error={error} handleRemoveArticle={handleRemoveArticle}/>}>
+                    <Route path='/' element ={<Home loading={loading} data={data} error={error} handleRemoveArticle={handleRemoveArticle} changeUrl={changeUrl}/>}>
                     </Route>
                     <Route path='/headlines' element ={<Headlines/>}>
                     </Route>

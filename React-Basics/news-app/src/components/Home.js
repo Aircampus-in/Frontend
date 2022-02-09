@@ -3,12 +3,12 @@ import Header from './Header';
 import Article from './Article';
 import Footer from './Footer';
 
-function Home({ handleRemoveArticle, data, error, loading}) {
+function Home({ handleRemoveArticle, data, error, loading,changeUrl}) {
 
 
   return (
     <div>
-        <Header/>
+        <Header changeUrl={changeUrl}/>
         {loading && <div className="loading">News Loading...</div>}
         {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>

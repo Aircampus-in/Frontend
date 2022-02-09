@@ -1,11 +1,23 @@
 import { DarkModeContext } from "../context/DarkModeContext";
-import {useContext} from 'react';
+// import { APIContext } from "../context/APIContext";
+import {useContext, useState} from 'react';
 import {NavLink, Link} from 'react-router-dom';
-function Header(){
+function Header(props){
 
     const{darkMode, toggleDarkMode} = useContext(DarkModeContext)
 
-    console.log('header')
+    const[value, setValue] = useState('');
+
+    const handleChange=(e)=>{
+        setValue(e.target.value)
+    }
+
+    // const handleSubmit=(e)=>{
+    //     e.preventDefault();
+    //     setValue('');
+    //     changeUrl();
+    // }
+
     // console.log(toggleDarkMode)
     return(
         <header className={
@@ -43,14 +55,14 @@ function Header(){
 
                 </ul>
                 <div>
-                    <form>
+                    <form onSubmit={props.changeUrl}>
                         <div className="search">
-                            <input type="text" className={
+                            <input type="text" value={value} className={
                                 darkMode?
                                 "search-term search-term-dark" :
                                 "search-term search-term-light"} 
-                                placeholder="Search News"/>
-                                
+                                placeholder="Search News" onChange={handleChange}/>
+
                             <button type="submit" className={
                                 darkMode ?
                                 "search-button search-button-dark" :
