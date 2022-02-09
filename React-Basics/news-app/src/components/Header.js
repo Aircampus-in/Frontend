@@ -55,13 +55,13 @@ function Header(props){
 
                 </ul>
                 <div>
-                    <form onSubmit={props.changeUrl}>
+                    <form onSubmit={(e)=>props.changeUrl(e, value)}>
                         <div className="search">
                             <input type="text" value={value} className={
                                 darkMode?
                                 "search-term search-term-dark" :
                                 "search-term search-term-light"} 
-                                placeholder="Search News" onChange={handleChange}/>
+                            placeholder="Search News" onChange={handleChange}/>
 
                             <button type="submit" className={
                                 darkMode ?
