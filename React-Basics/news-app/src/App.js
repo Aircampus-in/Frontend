@@ -18,8 +18,7 @@ function App(){
     const changeUrl = (e, value)=>{
         e.preventDefault();
         setUrl(`https://newsapi.org/v2/everything?q=${value}}&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`)
-        console.log(value)
-    }
+    }       
 
 
     // const[url, setUrl] = useState(`https://newsapi.org/v2/everything?q=india&apiKey=fb5542083cca4ac5957e9a26f8a6ec5f`);

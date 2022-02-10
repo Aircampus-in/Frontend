@@ -5,8 +5,8 @@ import Footer from './Footer';
 function ErrorPage() {
   return (
     <div>
-        <Header/> 
-        You have hit the wrong route.
+        <Header/>
+        <div className="container">You have hit the wrong route.</div> 
         <Footer/>
         </div>
   );;

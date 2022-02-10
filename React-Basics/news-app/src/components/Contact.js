@@ -6,9 +6,11 @@ function Contact() {
   return (
     <div>
         <Header/> 
-        Contact Page
-        <Footer/>
+        <div className="container">
+          Contact Page
         </div>
+        <Footer/>
+    </div>
   );
 }
 

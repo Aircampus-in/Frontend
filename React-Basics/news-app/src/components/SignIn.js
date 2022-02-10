@@ -6,7 +6,9 @@ function SignIn() {
   return (
     <div>
         <Header/> 
-        SignIn Page
+        <div className="container">
+          SignIn Page
+        </div>
         <Footer/>
         </div>
   );
