@@ -17,7 +17,6 @@ function Clock (){
         // console.log('useEffect')
         return function cleanup(){
             clearInterval();
-            // console.log('cleanup')
         };
     });
 
