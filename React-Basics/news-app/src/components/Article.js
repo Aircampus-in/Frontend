@@ -70,7 +70,7 @@ function Article(props){
 Article.propTypes={
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
+    img: PropTypes.string,
     removeArticle: PropTypes.func.isRequired
 }
 

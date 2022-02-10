@@ -45,9 +45,12 @@ function App(){
     //     ]) 
 
      useEffect(()=>{
+        let abortController;
         const getData = async()=>{
+            abortController = new AbortController();
+            let signal = abortController.signal;    
             try{
-                const response = await axios.get(url)
+                const response = await axios.get(url, { signal: signal })
                 console.log(response.data)
                 setData(response.data.articles);
                 setError(null);
@@ -59,7 +62,7 @@ function App(){
             }          
         }
         getData();      
-
+        return () => abortController.abort();
      }, [url])
 
 
