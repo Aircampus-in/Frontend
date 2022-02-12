@@ -48,7 +48,7 @@ function Article(props){
         <div className = {darkMode ? "container-article container-article-dark" : "container-article container-article-light"}>
             <img className="article-img"src= {img} alt="" />
                 <h2 className="article-title">{title}</h2>
-                <p className="article-para">helllo</p>
+                <p className="article-para">{desc.slice(0, 350)}</p>
                 <button className="article-btn"><a href={url} target ="_blank" rel="noreferrer">Read More</a></button>
                 <button className="remove-btn" onClick={()=>removeArticle(id)}>Remove</button>
                 <Reaction 
