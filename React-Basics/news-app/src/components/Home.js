@@ -3,23 +3,23 @@ import Header from './Header';
 import Article from './Article';
 import Footer from './Footer';
 
-function Home({ handleRemoveArticle, data, error, loading,changeUrl}) {
+function Home({ handleRemoveArticle, data}) {
 
 
   return (
     <div>
-        <Header changeUrl={changeUrl}/>
-        {loading && <div className="loading">News Loading...</div>}
+        <Header/>
+        {/* {loading && <div className="loading">News Loading...</div>}
         {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
-        )}
-        {data && data.map(({title, urlToImage, publishedAt, url, content})=>(<Article 
-        desc = {content}
+        )} */}
+        {data && data.map(({title, img, id})=>(<Article 
+        // desc = {content}
         title={title} 
-        img={urlToImage} 
-        id={publishedAt}
-        key={url}
-        url={url}
+        img={img} 
+        id={id}
+        key={id.toString()}
+        // url={url}
         removeArticle={handleRemoveArticle}/>))}
         <Footer/>
     </div>
