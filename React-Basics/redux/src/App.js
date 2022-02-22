@@ -3,7 +3,11 @@ import NewComp from './NewComp';
 
 function App() {
   return (
-    <NewComp/>
+    <div className="app">
+      <h1 className="welcome">Welcome</h1>
+      <NewComp/>
+    </div>
+    
   );
 }
 

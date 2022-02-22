@@ -14,7 +14,7 @@ const handleClick = () => {
 
     return (
         <div className="App">
-            <h3>{message}</h3>
+            <h3 className="message">{message}</h3>
             <button onClick={handleClick}>Subscribe</button>
         </div>
     );
