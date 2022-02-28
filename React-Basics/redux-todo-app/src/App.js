@@ -1,13 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import Input from './components/Input';
+import {store} from './app/store';
+import {Provider} from 'react-redux';
+
+
+// const todoList=[
+//   {
+
+//   }
+// ]
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
+      <div className="App">
       <h1>My TODO app</h1>
+      <Input/>
     </div>
+    </Provider>
+    
   );
 }
 
