@@ -7,6 +7,7 @@ export const tasksSlice = createSlice({
     addTask: (state, action) => {
       const newTask = {
         id: Date.now(),
+        done: false,
         task: action.payload.task,
       };
       state.push(newTask);
@@ -14,9 +15,15 @@ export const tasksSlice = createSlice({
     deleteTask: (state, action) => {
       return state.filter((item) => item.id !== action.payload.id);
     },
+
+    toggleComplete: (state, action) => {
+      const index = state.findIndex((item) => item.id === action.payload.id);
+
+      state[index].done = action.payload.done;
+    },
   },
 });
 
-export const { addTask, deleteTask } = tasksSlice.actions;
+export const { addTask, deleteTask, toggleComplete } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

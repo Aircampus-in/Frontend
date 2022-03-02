@@ -41,7 +41,7 @@ input:focus {
   font-weight: bold;
   border-bottom: 4px solid lightcyan;
   display: flex;
-  justify-content: space-between;
+  border-radius: 5px;
 }
 
 .todo-group {
@@ -51,4 +51,25 @@ input:focus {
 
 .delete {
   color: rgb(255, 66, 66);
+  cursor: pointer;
+}
+
+.check {
+  color: #22c55e;
+  cursor: pointer;
+}
+.done {
+  text-decoration: line-through;
+  flex-grow: 2;
+}
+
+.not-done {
+  text-decoration: none;
+  flex-grow: 2;
+}
+
+.todo-function {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
 }

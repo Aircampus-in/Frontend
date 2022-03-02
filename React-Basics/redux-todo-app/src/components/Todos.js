@@ -7,8 +7,8 @@ function Todos() {
   console.log(todos);
   return (
     <ul className="todo-group">
-      {todos.map(({ task, id }) => (
-        <TodoItem title={task} id={id} key={id.toString()} />
+      {todos.map(({ task, id, done }) => (
+        <TodoItem title={task} id={id} done={done} key={id.toString()} />
       ))}
     </ul>
   );
