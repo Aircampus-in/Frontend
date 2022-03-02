@@ -11,9 +11,9 @@ export const tasksSlice = createSlice({
       };
       state.push(newTask);
     },
-    // deleteTask: (state, action) => {
-    //   return state.filter((item) => item.id !== action.payload.id);
-    // },
+    deleteTask: (state, action) => {
+      return state.filter((item) => item.id !== action.payload.id);
+    },
   },
 });
 

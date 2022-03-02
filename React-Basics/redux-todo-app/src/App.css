@@ -34,4 +34,21 @@ input:focus {
 }
 
 .todo-item {
+  background-color: white;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 4px solid lightcyan;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-group {
+  padding: 0;
+  margin-top: 50px;
+}
+
+.delete {
+  color: rgb(255, 66, 66);
 }
