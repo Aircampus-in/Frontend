@@ -1,26 +1,15 @@
-import React from 'react';
-import './App.css';
-import Input from './components/Input';
-import {store} from './app/store';
-import {Provider} from 'react-redux';
+import React from "react";
+import Input from "./components/Input";
+import Todos from "./components/Todos";
 
-
-// const todoList=[
-//   {
-
-//   }
-// ]
-
-function App() {
+const App = () => {
   return (
-    <Provider store={store}>
-      <div className="App">
-      <h1>My TODO app</h1>
-      <Input/>
+    <div className="App">
+      <h1 className="app-title">My Tasks</h1>
+      <Input />
+      <Todos />
     </div>
-    </Provider>
-    
   );
-}
+};
 
 export default App;
