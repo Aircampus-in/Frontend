@@ -6,18 +6,12 @@ function App() {
   const dispatch = useDispatch()
   const count = useSelector((state)=>state.counter.value)
 
-  // const increment=()=>{
-  //   dispatch(increment())
-  // }
 
-  // const decrement=()=>{
-  //   dispatch(decrement())
-  // }
   return (
     <>
-    <button onClick={()=>dispatch(increment())}>+</button>
+    <button onClick={()=>dispatch(increment(1))}>+</button>
     <p>{count}</p>
-    <button onClick={()=>dispatch(decrement())}>-</button>
+    <button onClick={()=>dispatch(decrement(1))}>-</button>
     </>
   );
 }
