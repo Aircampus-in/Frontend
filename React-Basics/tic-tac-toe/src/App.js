@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 // import {useDispatch} from 'react-redux';
 
@@ -6,9 +5,9 @@ import './App.css';
 function App() {
   return (
     <>
-    <button onClick={increment}>+</button>
-    <p>{count}</p>
-    <button onClick={decrement}>-</button>
+    {/* <button onClick={increment}>+</button> */}
+    {/* <p>{count}</p> */}
+    {/* <button onClick={decrement}>-</button> */}
     </>
   );
 }
