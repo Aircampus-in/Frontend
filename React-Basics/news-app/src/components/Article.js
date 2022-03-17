@@ -1,77 +1,63 @@
-import React, {useState, useContext} from 'react';
-import { DarkModeContext } from '../context/DarkModeContext';
+import React from 'react';
 import Reaction from './Reaction';
-import CommentForm from './CommentForm';
-import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+import CommentForm from './CommentForm'
 
+class Article extends React.Component{
 
-function Article(props){
+    state={
+        likeCounter : 0,
+        commentCounter : 0,
+        value: '',
+        comments: []          
+    }
 
-
-    const {darkMode} = useContext(DarkModeContext)
-
-    const{id, img, removeArticle, title, url, desc} = props;
-
-    const[likeCounter, setLikeCounter] = useState(0);
-    const[commentCounter, setcommentCounter] = useState(0);
-    const[value, setValue] = useState('');
-    const[comments, setComments] = useState([]);
-
-    const incrementLike=(e)=>{
+    incrementLike=(e)=>{
     e.preventDefault();
-    setLikeCounter(likeCounter + 1);
+    this.setState(prevState =>({
+        likeCounter : prevState.likeCounter + 1
+    }));
     }
     
-    const handleChange=(e)=>{
-        setValue(e.target.value)
+    handleChange=(e)=>{
+        this.setState({
+            value: e.target.value
+        })
     }
-    const handleSubmit=(e)=>{
 
+    handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(comments)
-        setComments([
-                ...comments,
+        this.setState(prevState=>{
+            return{
+                comments:[
+                ...prevState.comments,
                     {
-                    comment: value,
-                    id: uuidv4()
+                    comment: prevState.value,
+                    id: prevState.comments.length
                     }
-                ]);
-        setcommentCounter(comments.length + 1);
-        setValue('');
+                ],
+                commentCounter: prevState.comments.length + 1,
+                value: ''
+            }
+            
+        })
 
     }
 
-        
-
+    render(){
         return(
-        <div className = {darkMode ? "container-article container-article-dark" : "container-article container-article-light"}>
-            <img className="article-img"src= {img} alt="" />
-                <h2 className="article-title">{title}</h2>
-                <p className="article-para">{desc.slice(0, 350)}</p>
-                <button className="article-btn"><a href={url} target ="_blank" rel="noreferrer">Read More</a></button>
-                <button className="remove-btn" onClick={()=>removeArticle(id)}>Remove</button>
-                <Reaction 
-                likeCounter={likeCounter} 
-                commentCounter={commentCounter} 
-                incrementLike={incrementLike}/>
-
-                <CommentForm 
-                value={value} 
-                comments={comments} 
-                handleChange={handleChange} 
-                handleSubmit={handleSubmit} />
+        <div className = "container-article">
+            <img className="article-img"src= {this.props.img} alt="" />
+                <h2 className="article-title">{this.props.title}</h2>
+                <p className="article-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis, qui nihil ipsum nisi impedit excepturi ullam debitis quam est? Eligendi...</p>
+                <button className="article-btn">Read More</button>
+                <button className="remove-btn" onClick={()=>this.props.removeArticle(this.props.id)}>Remove</button>
+                <Reaction likeCounter={this.state.likeCounter} commentCounter={this.state.commentCounter} incrementLike={this.incrementLike}/>
+                {/* <Comments/> */}
+                <CommentForm value={this.state.value} comments={this.state.comments} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         </div>
     );
+    }
     
-}
-
-
-Article.propTypes={
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    img: PropTypes.string,
-    removeArticle: PropTypes.func.isRequired
 }
 
 export default Article
