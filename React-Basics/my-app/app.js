@@ -41,16 +41,16 @@ class Reaction extends React.Component{
     }
 
     incerementLike(){
-        console.log(this)
-        // this.setState(prevState=>({
-        //     likes: prevState.likes+1
-        // }))
+        // console.log(this)
+        this.setState(prevState=>({
+            likes: prevState.likes+1
+        }))
     }
     render(){
-        console.log(this)
+        // console.log(this)
         return(
             <div className="reaction-container">
-                <a className="like" onClick={this.incerementLike.bind(this)}>
+                <a className="like" onClick={()=>this.incerementLike()}>
                     <i className="fas fa-heart fa-2x"></i>
                 </a>
                 <span className="like-counter">{this.state.likes}</span>
