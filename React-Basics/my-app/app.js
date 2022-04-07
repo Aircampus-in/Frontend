@@ -23,30 +23,70 @@ function Header() {
   );
 }
 
-function Article(props) {
-  return (
-    <div className="container-article">
-      <img className="article-img" src={props.img} alt="" />
-      <h2 className="article-title">{props.title}</h2>
-      <p className="article-para">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto,
-        quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis,
-        qui nihil ipsum nisi impedit excepturi ullam debitis quam est?
-        Eligendi...
-      </p>
-      <button className="article-btn">Read More</button>
-      <Reaction />
-    </div>
-  );
+class Article extends React.Component {
+  state = {
+    value: "",
+    comments: [],
+    likeCounter: 0,
+    commentCounter: 0,
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      value: e.target.value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      comments: [
+        ...this.state.comments,
+        { comment: this.state.value, id: this.state.comments.length },
+      ],
+      value: "",
+      commentCounter: this.state.comments.length + 1,
+    });
+  };
+
+  render() {
+    return (
+      <div className="container-article">
+        <img className="article-img" src={this.props.img} alt="" />
+        <h2 className="article-title">{this.props.title}</h2>
+        <p className="article-para">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto,
+          quibusdam voluptates. Placeat atque eos laudantium eum maxime ea quis,
+          qui nihil ipsum nisi impedit excepturi ullam debitis quam est?
+          Eligendi...
+        </p>
+        <button className="article-btn">Read More</button>
+        <button
+          className="remove-btn"
+          onClick={() => this.props.removeArticle(this.props.id)}
+        >
+          Remove
+        </button>
+        <Reaction
+          likeCounter={this.state.likeCounter}
+          commentCounter={this.state.commentCounter}
+          incrementLike={this.incrementLike}
+        />
+        <CommentForm
+          value={this.state.value}
+          comments={this.state.comments}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+      </div>
+    );
+  }
 }
 
 class Reaction extends React.Component {
   constructor() {
     super();
-    this.state = {
-      likes: 0,
-      comments: 0,
-    };
+    this.state = {};
   }
 
   incrementLike = () => {
@@ -59,18 +99,44 @@ class Reaction extends React.Component {
     // console.log(this)
     return (
       <div className="reaction-container">
-        <a className="like" onClick={this.incrementLike}>
-          {this.state.likes !== 0 ? (
+        <a className="like" onClick={this.props.incrementLike}>
+          {this.props.likeCounter !== 0 ? (
             <i className="fas fa-heart fa-2x"></i>
           ) : (
             <i className="far fa-heart fa-2x"></i>
           )}
         </a>
-        <span className="like-counter">{this.state.likes}</span>
+        <span className="like-counter">{this.props.likeCounter}</span>
         <a className="comment">
           <i className="fas fa-comment fa-2x"></i>
         </a>
-        <span className="comment-counter">{this.state.comments}</span>
+        <span className="comment-counter">{this.props.commentCounter}</span>
+      </div>
+    );
+  }
+}
+
+class CommentForm extends React.Component {
+  render() {
+    return (
+      <div>
+        <div>
+          {this.props.comments.map((c) => (
+            <p key={c.id.toString()}>{c.comment}</p>
+          ))}
+        </div>
+
+        <form className="form-container" onSubmit={this.props.handleSubmit}>
+          <input
+            type="text"
+            value={this.props.value}
+            className="comment-box"
+            onChange={this.props.handleChange}
+          />
+          <button className="comment-btn">
+            <i className="fas fa-arrow-right fa-2x"></i>
+          </button>
+        </form>
       </div>
     );
   }
@@ -121,6 +187,12 @@ class App extends React.Component {
       },
     ],
   };
+
+  handleRemoveArticle = (id) => {
+    this.setState((prevState) => ({
+      articles: prevState.articles.filter((article) => article.id !== id),
+    }));
+  };
   render() {
     // console.log(this.props);
     return (
@@ -132,6 +204,8 @@ class App extends React.Component {
             title={article.title}
             img={article.img}
             key={article.id.toString()}
+            removeArticle={this.handleRemoveArticle}
+            id={article.id}
           />
         ))}
         <Footer />
